@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=deviec-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <h3>Webpage Scraper</h3>
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="." class="nav-link px-2 text-white">Home</a></li>
+                    <li><a href="file_upload" class="nav-link px-2 text-white">File_Upload</a></li>
+                    <li><a href="url_parser" class="nav-link px-2 text-secondary">Webpage_Scraper</a></li>
+                </ul>
+
+
+            </div>
+        </div>
+    </header>
+    <p></p>
+    <p></p>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table align="center" width="800" height="200" border="1">
+            <tr align="center">
+                <td class="p-3 text-bg-dark bg-opacity-75" colspan="3"><h3>Insert</h3></td>
+            </tr>
+            <tr>
+                <td align="center">URL</td>
+                <td align="center" width="200">{{form.url}}</td>
+            </tr>
+            <tr>
+                <td align="center">Search</td>
+                <td align="center">{{form.keyword}}</td>
+                <td align="center"><input type="submit" value="Submit" class="btn btn-outline-secondary" /></td>
+            </tr>
+        </table>
+        <table width="800" align="center">
+            <tr>
+                <td align="center">{{ error_msg }}</td>
+            </tr>
+        </table>
+        <p></p>
+        <table align="center" width="800" border="1" height="100">
+            <tr align="center">
+                <td class="p-3 text-bg-dark bg-opacity-50" colspan="3"><h3>Counter</h3></td>
+            </tr>
+            <tr align="center">
+                <td align="center">Characters</td>
+                <td align="center">Words</td>
+                <td align="center">Sentences</td>
+            </tr>
+            <tr>
+                <td align="center">
+                    {{ counts.char }}
+                </td>
+                <td align="center">
+                    {{ counts.word }}
+                </td>
+                <td align="center">
+                    {{ counts.sentence }}
+                </td>
+            </tr>
+        </table>
+        <p></p>
+        <table align="center" width="800" border="1">
+            <tr align="center">
+                <td class="p-3 text-bg-dark bg-opacity-25" colspan="3"><h3>Text</h3></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    {% autoescape off %}
+                    {{ url_text }}
+                    {% endautoescape %}
+                </td>
+                <td></td>
+            </tr>
+        </table>
+        <p></p>
+        <table align="center" width="800" border="1">
+            <tr align="center">
+                <td class="p-3 text-bg-dark bg-opacity-10" colspan="3"><h3>TOP 10 Keyword's density</h3></td>
+            </tr>
+            {%for c in word_counts %}
+            <tr>
+                <td>{{c.0}}</td>
+                <td>{{c.1}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+</body>
+</html>

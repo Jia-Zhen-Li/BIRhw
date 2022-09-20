@@ -138,7 +138,11 @@ def json_file_parser(file_text): # 分析json檔內容
         else:
             break
             #print('break')
-    texts = parser[0]['Text'] # 將text擷取出來
+    try:
+        texts = parser[0]['Text'] # 將text擷取出來
+    except:
+        texts = parser[0]['tweet_text'] # 將text擷取出來
+
     return texts
 
 def json_url_parser(url_text):

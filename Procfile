@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath BIRhw BIRhw.wsgi

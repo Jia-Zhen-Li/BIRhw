@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=deviec-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="." class="nav-link px-2 text-secondary">Home</a></li>
+                    <li><a href="file_upload" class="nav-link px-2 text-white">File_Upload</a></li>
+                    <li><a href="url_parser" class="nav-link px-2 text-white">Webpage_Scraper</a></li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+                </form>
+
+            </div>
+        </div>
+    </header>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>Upload file</h1>
+        <table>
+            <tr>
+                <td>{{form}}</td>
+                <td><input type="submit" value="Submit" class="btn btn-outline-secondary" /></td>
+            </tr>
+            <tr>
+                <td>{{ error_msg }}</td>
+            </tr>
+        </table>
+    </form>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div width="40" height="10">
+        <canvas id="myChart" width="40" height="10"></canvas>
+    </div>
+    <script>
+    const labels = [ {{ data_len }} ]
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+        ];
+
+        const data = {
+            label: 'Scatter Dataset',
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [{
+                    x: 0.5,
+                    y: 0.0
+                }, {
+                    x: 0.2,
+                    y: 1.0
+                }, {
+                    x: 0.88,
+                    y: 0.5
+                }, {
+                    x: 0.5,
+                    y: 0.65
+                }],
+            }],
+            pointStyle: 'rectRounded',
+            backgroundColor: 'rgb(12, 99, 132)'
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {}
+        };
+    </script>
+    <script>
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+
+</body>
+</html>

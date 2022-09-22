@@ -1,0 +1,1152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2019//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_190101.dtd">
+<PubmedArticleSet>
+   <PubmedArticle>
+      <MedlineCitation IndexingMethod="Curated" Owner="NLM" Status="MEDLINE">
+         <PMID Version="1">35623380</PMID>
+         <DateRevised>
+            <Year>2022</Year>
+            <Month>08</Month>
+            <Day>08</Day>
+         </DateRevised>
+         <Article PubModel="Print-Electronic">
+            <Journal>
+               <ISSN IssnType="Electronic">1474-4457</ISSN>
+               <JournalIssue CitedMedium="Internet">
+                  <Volume>22</Volume>
+                  <Issue>8</Issue>
+                  <PubDate>
+                     <Year>2022</Year>
+                     <Month>08</Month>
+                  </PubDate>
+               </JournalIssue>
+               <Title>The Lancet. Infectious diseases</Title>
+               <ISOAbbreviation>Lancet Infect Dis</ISOAbbreviation>
+            </Journal>
+            <ArticleTitle>Clinical features and management of human monkeypox: a retrospective observational study in the UK.</ArticleTitle>
+            <Pagination>
+               <MedlinePgn>1153-1162</MedlinePgn>
+            </Pagination>
+            <ELocationID EIdType="pii" ValidYN="Y">S1473-3099(22)00228-6</ELocationID>
+            <ELocationID EIdType="doi" ValidYN="Y">10.1016/S1473-3099(22)00228-6</ELocationID>
+            <Abstract>
+               <AbstractText Label="BACKGROUND">Cases of human monkeypox are rarely seen outside of west and central Africa. There are few data regarding viral kinetics or the duration of viral shedding and no licensed treatments. Two oral drugs, brincidofovir and tecovirimat, have been approved for treatment of smallpox and have demonstrated efficacy against monkeypox in animals. Our aim was to describe the longitudinal clinical course of monkeypox in a high-income setting, coupled with viral dynamics, and any adverse events related to novel antiviral therapies.</AbstractText>
+               <AbstractText Label="METHODS">In this retrospective observational study, we report the clinical features, longitudinal virological findings, and response to off-label antivirals in seven patients with monkeypox who were diagnosed in the UK between 2018 and 2021, identified through retrospective case-note review. This study included all patients who were managed in dedicated high consequence infectious diseases (HCID) centres in Liverpool, London, and Newcastle, coordinated via a national HCID network.</AbstractText>
+               <AbstractText Label="FINDINGS">We reviewed all cases since the inception of the HCID (airborne) network between Aug 15, 2018, and Sept 10, 2021, identifying seven patients. Of the seven patients, four were men and three were women. Three acquired monkeypox in the UK: one patient was a health-care worker who acquired the virus nosocomially, and one patient who acquired the virus abroad transmitted it to an adult and child within their household cluster. Notable disease features included viraemia, prolonged monkeypox virus DNA detection in upper respiratory tract swabs, reactive low mood, and one patient had a monkeypox virus PCR-positive deep tissue abscess. Five patients spent more than 3 weeks (range 22-39 days) in isolation due to prolonged PCR positivity. Three patients were treated with brincidofovir (200 mg once a week orally), all of whom developed elevated liver enzymes resulting in cessation of therapy. One patient was treated with tecovirimat (600 mg twice daily for 2 weeks orally), experienced no adverse effects, and had a shorter duration of viral shedding and illness (10 days hospitalisation) compared with the other six patients. One patient experienced a mild relapse 6 weeks after hospital discharge.</AbstractText>
+               <AbstractText Label="INTERPRETATION">Human monkeypox poses unique challenges, even to well resourced health-care systems with HCID networks. Prolonged upper respiratory tract viral DNA shedding after skin lesion resolution challenged current infection prevention and control guidance. There is an urgent need for prospective studies of antivirals for this disease.</AbstractText>
+               <AbstractText Label="FUNDING">None.</AbstractText>
+               <CopyrightInformation>Copyright © 2022 The Author(s). Published by Elsevier Ltd. This is an Open Access article under the CC BY-NC-ND 4.0 license. Published by Elsevier Ltd.. All rights reserved.</CopyrightInformation>
+            </Abstract>
+            <AuthorList CompleteYN="Y">
+               <Author ValidYN="Y">
+                  <LastName>Adler</LastName>
+                  <ForeName>Hugh</ForeName>
+                  <Initials>H</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Tropical and Infectious Disease Unit, Liverpool University Hospitals NHS Foundation Trust, Liverpool, UK; Department of Clinical Sciences, Liverpool School of Tropical Medicine, Liverpool, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Gould</LastName>
+                  <ForeName>Susan</ForeName>
+                  <Initials>S</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Tropical and Infectious Disease Unit, Liverpool University Hospitals NHS Foundation Trust, Liverpool, UK; Department of Clinical Sciences, Liverpool School of Tropical Medicine, Liverpool, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Hine</LastName>
+                  <ForeName>Paul</ForeName>
+                  <Initials>P</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Tropical and Infectious Disease Unit, Liverpool University Hospitals NHS Foundation Trust, Liverpool, UK; Department of Clinical Sciences, Liverpool School of Tropical Medicine, Liverpool, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Snell</LastName>
+                  <ForeName>Luke B</ForeName>
+                  <Initials>LB</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Directorate of Infection, Guy's &amp; St Thomas' NHS Foundation Trust, London, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Wong</LastName>
+                  <ForeName>Waison</ForeName>
+                  <Initials>W</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Department of Paediatric Infectious Diseases, Alder Hey Children's NHS Foundation Trust, Liverpool, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Houlihan</LastName>
+                  <ForeName>Catherine F</ForeName>
+                  <Initials>CF</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Rare and Imported Pathogens Laboratory, UK Health Security Agency, Porton Down, Salisbury, UK; University College London, London, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Osborne</LastName>
+                  <ForeName>Jane C</ForeName>
+                  <Initials>JC</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Rare and Imported Pathogens Laboratory, UK Health Security Agency, Porton Down, Salisbury, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Rampling</LastName>
+                  <ForeName>Tommy</ForeName>
+                  <Initials>T</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Rare and Imported Pathogens Laboratory, UK Health Security Agency, Porton Down, Salisbury, UK; University College London, London, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Beadsworth</LastName>
+                  <ForeName>Mike Bj</ForeName>
+                  <Initials>MB</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Tropical and Infectious Disease Unit, Liverpool University Hospitals NHS Foundation Trust, Liverpool, UK; Department of Clinical Sciences, Liverpool School of Tropical Medicine, Liverpool, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Duncan</LastName>
+                  <ForeName>Christopher Ja</ForeName>
+                  <Initials>CJ</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Department of Infection and Tropical Medicine, Newcastle-upon-Tyne Hospitals NHS Foundation Trust, Newcastle, UK; Translational and Clinical Research Institute, Immunity and Inflammation Theme, Newcastle University, Newcastle Upon Tyne, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Dunning</LastName>
+                  <ForeName>Jake</ForeName>
+                  <Initials>J</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Department of Infectious Diseases, Royal Free London NHS Foundation Trust, London, UK; Centre for Tropical Medicine and Global Health, University of Oxford, Oxford, UK; National Infection Service, UK Health Security Agency, London, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Fletcher</LastName>
+                  <ForeName>Tom E</ForeName>
+                  <Initials>TE</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Tropical and Infectious Disease Unit, Liverpool University Hospitals NHS Foundation Trust, Liverpool, UK; Department of Clinical Sciences, Liverpool School of Tropical Medicine, Liverpool, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Hunter</LastName>
+                  <ForeName>Ewan R</ForeName>
+                  <Initials>ER</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Department of Infection and Tropical Medicine, Newcastle-upon-Tyne Hospitals NHS Foundation Trust, Newcastle, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Jacobs</LastName>
+                  <ForeName>Michael</ForeName>
+                  <Initials>M</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>University College London, London, UK; Department of Infectious Diseases, Royal Free London NHS Foundation Trust, London, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Khoo</LastName>
+                  <ForeName>Saye H</ForeName>
+                  <Initials>SH</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Tropical and Infectious Disease Unit, Liverpool University Hospitals NHS Foundation Trust, Liverpool, UK; Institute of Systems, Molecular and Integrative Biology, University of Liverpool, Liverpool, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Newsholme</LastName>
+                  <ForeName>William</ForeName>
+                  <Initials>W</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Directorate of Infection, Guy's &amp; St Thomas' NHS Foundation Trust, London, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Porter</LastName>
+                  <ForeName>David</ForeName>
+                  <Initials>D</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Department of Paediatric Infectious Diseases, Alder Hey Children's NHS Foundation Trust, Liverpool, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Porter</LastName>
+                  <ForeName>Robert J</ForeName>
+                  <Initials>RJ</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Royal Devon and Exeter NHS Foundation Trust, Exeter, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Ratcliffe</LastName>
+                  <ForeName>Libuše</ForeName>
+                  <Initials>L</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Tropical and Infectious Disease Unit, Liverpool University Hospitals NHS Foundation Trust, Liverpool, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Schmid</LastName>
+                  <ForeName>Matthias L</ForeName>
+                  <Initials>ML</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Department of Infection and Tropical Medicine, Newcastle-upon-Tyne Hospitals NHS Foundation Trust, Newcastle, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Semple</LastName>
+                  <ForeName>Malcolm G</ForeName>
+                  <Initials>MG</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Respiratory Unit, Alder Hey Children's NHS Foundation Trust, Liverpool, UK; NIHR Health Protection Research Unit in Emerging and Zoonotic Infections, Institute of Infection Veterinary and Ecological Sciences, University of Liverpool, Liverpool, UK.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Tunbridge</LastName>
+                  <ForeName>Anne J</ForeName>
+                  <Initials>AJ</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Department of Infectious Diseases, Sheffield Teaching Hospitals NHS Foundation Trust, Royal Hallamshire Hospital, Sheffield.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Wingfield</LastName>
+                  <ForeName>Tom</ForeName>
+                  <Initials>T</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Tropical and Infectious Disease Unit, Liverpool University Hospitals NHS Foundation Trust, Liverpool, UK; Department of Clinical Sciences, Liverpool School of Tropical Medicine, Liverpool, UK; World Health Organization Collaborating Centre on Tuberculosis and Social Medicine, Department of Global Public Health, Karolinska Institute, Stockholm, Sweden.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Price</LastName>
+                  <ForeName>Nicholas M</ForeName>
+                  <Initials>NM</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Directorate of Infection, Guy's &amp; St Thomas' NHS Foundation Trust, London, UK. Electronic address: nicholas.price@gstt.nhs.uk.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <CollectiveName>NHS England High Consequence Infectious Diseases (Airborne) Network</CollectiveName>
+               </Author>
+            </AuthorList>
+            <Language>eng</Language>
+            <GrantList CompleteYN="Y">
+               <Grant>
+                  <Acronym>WT_</Acronym>
+                  <Agency>Wellcome Trust</Agency>
+                  <Country>United Kingdom</Country>
+               </Grant>
+               <Grant>
+                  <GrantID>211153/Z/18/Z</GrantID>
+                  <Acronym>WT_</Acronym>
+                  <Agency>Wellcome Trust</Agency>
+                  <Country>United Kingdom</Country>
+               </Grant>
+               <Grant>
+                  <GrantID>209075/Z/17/Z</GrantID>
+                  <Acronym>WT_</Acronym>
+                  <Agency>Wellcome Trust</Agency>
+                  <Country>United Kingdom</Country>
+               </Grant>
+               <Grant>
+                  <GrantID>MR/V028618/1</GrantID>
+                  <Acronym>MRC_</Acronym>
+                  <Agency>Medical Research Council</Agency>
+                  <Country>United Kingdom</Country>
+               </Grant>
+               <Grant>
+                  <GrantID>MR/V004832/1</GrantID>
+                  <Acronym>MRC_</Acronym>
+                  <Agency>Medical Research Council</Agency>
+                  <Country>United Kingdom</Country>
+               </Grant>
+               <Grant>
+                  <GrantID>MC_PC_19059</GrantID>
+                  <Acronym>MRC_</Acronym>
+                  <Agency>Medical Research Council</Agency>
+                  <Country>United Kingdom</Country>
+               </Grant>
+               <Grant>
+                  <GrantID>215091/Z/18/Z</GrantID>
+                  <Acronym>WT_</Acronym>
+                  <Agency>Wellcome Trust</Agency>
+                  <Country>United Kingdom</Country>
+               </Grant>
+            </GrantList>
+            <PublicationTypeList>
+               <PublicationType UI="D016428">Journal Article</PublicationType>
+               <PublicationType UI="D064888">Observational Study</PublicationType>
+               <PublicationType UI="D013485">Research Support, Non-U.S. Gov't</PublicationType>
+            </PublicationTypeList>
+            <ArticleDate DateType="Electronic">
+               <Year>2022</Year>
+               <Month>05</Month>
+               <Day>24</Day>
+            </ArticleDate>
+         </Article>
+         <MedlineJournalInfo>
+            <Country>United States</Country>
+            <MedlineTA>Lancet Infect Dis</MedlineTA>
+            <NlmUniqueID>101130150</NlmUniqueID>
+            <ISSNLinking>1473-3099</ISSNLinking>
+         </MedlineJournalInfo>
+         <ChemicalList>
+            <Chemical>
+               <RegistryNumber>0</RegistryNumber>
+               <NameOfSubstance UI="D000998">Antiviral Agents</NameOfSubstance>
+            </Chemical>
+         </ChemicalList>
+         <CitationSubset>IM</CitationSubset>
+         <CommentsCorrectionsList>
+            <CommentsCorrections RefType="ErratumIn">
+               <RefSource>Lancet Infect Dis. 2022 Jul;22(7):e177</RefSource>
+               <PMID Version="1">35644159</PMID>
+            </CommentsCorrections>
+            <CommentsCorrections RefType="ErratumIn">
+               <RefSource>Lancet Infect Dis. 2022 Jul;22(7):e177</RefSource>
+               <PMID Version="1">35659001</PMID>
+            </CommentsCorrections>
+         </CommentsCorrectionsList>
+         <MeshHeadingList>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D000328">Adult</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D000818">Animals</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D000998">Antiviral Agents</DescriptorName>
+               <QualifierName MajorTopicYN="N" UI="Q000627">therapeutic use</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D002648">Child</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D005260">Female</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D006801">Humans</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D008297">Male</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="Y" UI="D045908">Monkeypox</DescriptorName>
+               <QualifierName MajorTopicYN="N" UI="Q000175">diagnosis</QualifierName>
+               <QualifierName MajorTopicYN="N" UI="Q000188">drug therapy</QualifierName>
+               <QualifierName MajorTopicYN="N" UI="Q000453">epidemiology</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D011446">Prospective Studies</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D012189">Retrospective Studies</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" Type="Geographic" UI="D006113">United Kingdom</DescriptorName>
+               <QualifierName MajorTopicYN="N" UI="Q000453">epidemiology</QualifierName>
+            </MeshHeading>
+         </MeshHeadingList>
+         <CoiStatement>Declaration of interests JD reports an unremunerated role on a Data Safety and Monitoring Board (DSMB) for an extended access programme for tecovirimat. MGS reports non-remunerated roles in a DSMB for Pfizer's mRNA vaccine programme, the UK Scientific Advisory Group for Emergencies, and New Emerging Respiratory Virus Threats Advisory Group; and reports chairing a Scientific Advisory Board and holding stock or stock options in Integrum Scientific LLC, Greensboro, NC, USA. SHK reports grants (unrelated to the current work) from ViiV, Merck, and Gilead Sciences; advisory board membership for ViiV and Merck; honoraria from ViiV; and being an unremunerated chair of a DSMB for a Gates Foundation-funded trial.</CoiStatement>
+         <InvestigatorList>
+            <Investigator ValidYN="Y">
+               <LastName>Abouyannis</LastName>
+               <ForeName>Mike</ForeName>
+               <Initials>M</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Al-Balushi</LastName>
+               <ForeName>Asma</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Aston</LastName>
+               <ForeName>Stephen</ForeName>
+               <Initials>S</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Ball</LastName>
+               <ForeName>Robert</ForeName>
+               <Initials>R</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Beeching</LastName>
+               <ForeName>Nicholas J</ForeName>
+               <Initials>NJ</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Blanchard</LastName>
+               <ForeName>Thomas J</ForeName>
+               <Initials>TJ</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Carlin</LastName>
+               <ForeName>Ffion</ForeName>
+               <Initials>F</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Davies</LastName>
+               <ForeName>Geraint</ForeName>
+               <Initials>G</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Gillespie</LastName>
+               <ForeName>Angela</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Hicks</LastName>
+               <ForeName>Scott R</ForeName>
+               <Initials>SR</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Hoyle</LastName>
+               <ForeName>Marie-Claire</ForeName>
+               <Initials>MC</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Ilozue</LastName>
+               <ForeName>Chinenye</ForeName>
+               <Initials>C</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Mair</LastName>
+               <ForeName>Luke</ForeName>
+               <Initials>L</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Marshall</LastName>
+               <ForeName>Suzanne</ForeName>
+               <Initials>S</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Neary</LastName>
+               <ForeName>Anne</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Nsutebu</LastName>
+               <ForeName>Emmanuel</ForeName>
+               <Initials>E</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Parker</LastName>
+               <ForeName>Samantha</ForeName>
+               <Initials>S</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Ryan</LastName>
+               <ForeName>Hannah</ForeName>
+               <Initials>H</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Turtle</LastName>
+               <ForeName>Lance</ForeName>
+               <Initials>L</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Smith</LastName>
+               <ForeName>Chris</ForeName>
+               <Initials>C</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>van Aartsen</LastName>
+               <ForeName>Jon</ForeName>
+               <Initials>J</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Walker</LastName>
+               <ForeName>Naomi F</ForeName>
+               <Initials>NF</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Woolley</LastName>
+               <ForeName>Stephen</ForeName>
+               <Initials>S</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Chawla</LastName>
+               <ForeName>Anu</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Hart</LastName>
+               <ForeName>Ian</ForeName>
+               <Initials>I</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Smielewska</LastName>
+               <ForeName>Anna</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Joekes</LastName>
+               <ForeName>Elizabeth</ForeName>
+               <Initials>E</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Benson</LastName>
+               <ForeName>Cathryn</ForeName>
+               <Initials>C</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Brindley</LastName>
+               <ForeName>Cheryl</ForeName>
+               <Initials>C</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Das</LastName>
+               <ForeName>Urmi</ForeName>
+               <Initials>U</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Eyton-Chong</LastName>
+               <ForeName>Chin K</ForeName>
+               <Initials>CK</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Gnanalingham</LastName>
+               <ForeName>Claire</ForeName>
+               <Initials>C</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Halfhide</LastName>
+               <ForeName>Clare</ForeName>
+               <Initials>C</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Larru</LastName>
+               <ForeName>Beatriz</ForeName>
+               <Initials>B</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Mayell</LastName>
+               <ForeName>Sarah</ForeName>
+               <Initials>S</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>McBride</LastName>
+               <ForeName>Joanna</ForeName>
+               <Initials>J</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Oliver</LastName>
+               <ForeName>Claire</ForeName>
+               <Initials>C</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Paul</LastName>
+               <ForeName>Princy</ForeName>
+               <Initials>P</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Riordan</LastName>
+               <ForeName>Andrew</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Sridhar</LastName>
+               <ForeName>Lekha</ForeName>
+               <Initials>L</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Storey</LastName>
+               <ForeName>Megan</ForeName>
+               <Initials>M</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Abdul</LastName>
+               <ForeName>Audrey</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Abrahamsen</LastName>
+               <ForeName>Jennifer</ForeName>
+               <Initials>J</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Athan</LastName>
+               <ForeName>Breda</ForeName>
+               <Initials>B</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Bhagani</LastName>
+               <ForeName>Sanjay</ForeName>
+               <Initials>S</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Brown</LastName>
+               <ForeName>Colin S</ForeName>
+               <Initials>CS</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Carpenter</LastName>
+               <ForeName>Oliver</ForeName>
+               <Initials>O</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Cropley</LastName>
+               <ForeName>Ian</ForeName>
+               <Initials>I</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Frost</LastName>
+               <ForeName>Kerrie</ForeName>
+               <Initials>K</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Hopkins</LastName>
+               <ForeName>Susan</ForeName>
+               <Initials>S</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Joyce</LastName>
+               <ForeName>Jessica</ForeName>
+               <Initials>J</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Lamb</LastName>
+               <ForeName>Lucy</ForeName>
+               <Initials>L</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Lyons</LastName>
+               <ForeName>Adrian</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Mahungu</LastName>
+               <ForeName>Tabitha</ForeName>
+               <Initials>T</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Mepham</LastName>
+               <ForeName>Stephen</ForeName>
+               <Initials>S</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Mukwaira</LastName>
+               <ForeName>Edina</ForeName>
+               <Initials>E</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Rodger</LastName>
+               <ForeName>Alison</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Taylor</LastName>
+               <ForeName>Caroline</ForeName>
+               <Initials>C</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Warren</LastName>
+               <ForeName>Simon</ForeName>
+               <Initials>S</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Williams</LastName>
+               <ForeName>Alan</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Levitt</LastName>
+               <ForeName>Debbie</ForeName>
+               <Initials>D</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Allen</LastName>
+               <ForeName>Denise</ForeName>
+               <Initials>D</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Dixon</LastName>
+               <ForeName>Jill</ForeName>
+               <Initials>J</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Evans</LastName>
+               <ForeName>Adam</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>McNicholas</LastName>
+               <ForeName>Pauline</ForeName>
+               <Initials>P</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Payne</LastName>
+               <ForeName>Brendan</ForeName>
+               <Initials>B</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Price</LastName>
+               <ForeName>D Ashley</ForeName>
+               <Initials>DA</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Schwab</LastName>
+               <ForeName>Uli</ForeName>
+               <Initials>U</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Sykes</LastName>
+               <ForeName>Allison</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Taha</LastName>
+               <ForeName>Yusri</ForeName>
+               <Initials>Y</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Ward</LastName>
+               <ForeName>Margaret</ForeName>
+               <Initials>M</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Emonts</LastName>
+               <ForeName>Marieke</ForeName>
+               <Initials>M</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Owens</LastName>
+               <ForeName>Stephen</ForeName>
+               <Initials>S</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Botgros</LastName>
+               <ForeName>Alina</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Douthwaite</LastName>
+               <ForeName>Sam T</ForeName>
+               <Initials>ST</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Goodman</LastName>
+               <ForeName>Anna</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Luintel</LastName>
+               <ForeName>Akish</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>MacMahon</LastName>
+               <ForeName>Eithne</ForeName>
+               <Initials>E</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Nebbia</LastName>
+               <ForeName>Gaia</ForeName>
+               <Initials>G</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>O'Hara</LastName>
+               <ForeName>Geraldine</ForeName>
+               <Initials>G</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Parsons</LastName>
+               <ForeName>Joseph</ForeName>
+               <Initials>J</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Sen</LastName>
+               <ForeName>Ashwin</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Stevenson</LastName>
+               <ForeName>Daniel</ForeName>
+               <Initials>D</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Sullivan</LastName>
+               <ForeName>Tadgh</ForeName>
+               <Initials>T</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Taj</LastName>
+               <ForeName>Usman</ForeName>
+               <Initials>U</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>van Nipsen Tot Pannerden</LastName>
+               <ForeName>Claire</ForeName>
+               <Initials>C</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Winslow</LastName>
+               <ForeName>Helen</ForeName>
+               <Initials>H</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Zatyka</LastName>
+               <ForeName>Ewa</ForeName>
+               <Initials>E</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Alozie-Otuka</LastName>
+               <ForeName>Ekene</ForeName>
+               <Initials>E</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Beviz</LastName>
+               <ForeName>Csaba</ForeName>
+               <Initials>C</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Ceesay</LastName>
+               <ForeName>Yusupha</ForeName>
+               <Initials>Y</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Gargee</LastName>
+               <ForeName>Latchmin</ForeName>
+               <Initials>L</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Kabia</LastName>
+               <ForeName>Morloh</ForeName>
+               <Initials>M</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Mitchell</LastName>
+               <ForeName>Hannah</ForeName>
+               <Initials>H</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Perkins</LastName>
+               <ForeName>Shona</ForeName>
+               <Initials>S</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Sasson</LastName>
+               <ForeName>Mingaile</ForeName>
+               <Initials>M</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Sehmbey</LastName>
+               <ForeName>Kamal</ForeName>
+               <Initials>K</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Tabios</LastName>
+               <ForeName>Federico</ForeName>
+               <Initials>F</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Wigglesworth</LastName>
+               <ForeName>Neil</ForeName>
+               <Initials>N</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Aarons</LastName>
+               <ForeName>Emma J</ForeName>
+               <Initials>EJ</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Brooks</LastName>
+               <ForeName>Tim</ForeName>
+               <Initials>T</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Dryden</LastName>
+               <ForeName>Matthew</ForeName>
+               <Initials>M</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Furneaux</LastName>
+               <ForeName>Jenna</ForeName>
+               <Initials>J</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Gibney</LastName>
+               <ForeName>Barry</ForeName>
+               <Initials>B</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Small</LastName>
+               <ForeName>Jennifer</ForeName>
+               <Initials>J</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Truelove</LastName>
+               <ForeName>Elizabeth</ForeName>
+               <Initials>E</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Warrell</LastName>
+               <ForeName>Clare E</ForeName>
+               <Initials>CE</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Firth</LastName>
+               <ForeName>Richard</ForeName>
+               <Initials>R</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Hobson</LastName>
+               <ForeName>Gemma</ForeName>
+               <Initials>G</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Johnson</LastName>
+               <ForeName>Christopher</ForeName>
+               <Initials>C</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Dewynter</LastName>
+               <ForeName>Alison</ForeName>
+               <Initials>A</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Nixon</LastName>
+               <ForeName>Sebastian</ForeName>
+               <Initials>S</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Spence</LastName>
+               <ForeName>Oliver</ForeName>
+               <Initials>O</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Bugert</LastName>
+               <ForeName>Joachim J</ForeName>
+               <Initials>JJ</Initials>
+            </Investigator>
+            <Investigator ValidYN="Y">
+               <LastName>Hruby</LastName>
+               <ForeName>Dennis E</ForeName>
+               <Initials>DE</Initials>
+            </Investigator>
+         </InvestigatorList>
+      </MedlineCitation>
+      <PubmedData>
+         <History>
+            <PubMedPubDate PubStatus="received">
+               <Year>2022</Year>
+               <Month>01</Month>
+               <Day>31</Day>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="revised">
+               <Year>2022</Year>
+               <Month>03</Month>
+               <Day>25</Day>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="accepted">
+               <Year>2022</Year>
+               <Month>03</Month>
+               <Day>29</Day>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="pubmed">
+               <Year>2022</Year>
+               <Month>5</Month>
+               <Day>28</Day>
+               <Hour>6</Hour>
+               <Minute>0</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="medline">
+               <Year>2022</Year>
+               <Month>7</Month>
+               <Day>27</Day>
+               <Hour>6</Hour>
+               <Minute>0</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="entrez">
+               <Year>2022</Year>
+               <Month>5</Month>
+               <Day>27</Day>
+               <Hour>19</Hour>
+               <Minute>2</Minute>
+            </PubMedPubDate>
+         </History>
+         <PublicationStatus>ppublish</PublicationStatus>
+         <ArticleIdList>
+            <ArticleId IdType="pubmed">35623380</ArticleId>
+            <ArticleId IdType="pii">S1473-3099(22)00228-6</ArticleId>
+            <ArticleId IdType="doi">10.1016/S1473-3099(22)00228-6</ArticleId>
+            <ArticleId IdType="pmc">PMC9300470</ArticleId>
+         </ArticleIdList>
+         <ReferenceList>
+            <Reference>
+               <Citation>J Infect Dis. 2006 Sep 15;194(6):773-80</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">16941343</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Physiol Rev. 2020 Jul 1;100(3):1349-1414</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">32031468</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>PLoS Negl Trop Dis. 2019 Oct 16;13(10):e0007791</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">31618206</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>mSphere. 2021 Feb 3;6(1):</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">33536322</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Clin Infect Dis. 2005 Dec 15;41(12):1742-51</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">16288398</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Clin Infect Dis. 2019 Nov 27;69(12):2205-2207</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">30959520</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>J Gen Virol. 2005 Oct;86(Pt 10):2661-2672</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">16186219</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>N Engl J Med. 2004 Jan 22;350(4):342-50</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">14736926</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Lancet Infect Dis. 2019 Aug;19(8):872-879</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">31285143</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Clin Infect Dis. 2020 Nov 5;71(8):e210-e214</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">32052029</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Euro Surveill. 2021 Aug;26(32):</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">34387184</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Am J Trop Med Hyg. 2005 Aug;73(2):428-34</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">16103616</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Clin Infect Dis. 2014 Jan;58(2):260-7</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">24158414</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Lancet Infect Dis. 2019 Nov;19(11):1166</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">31657773</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Emerg Infect Dis. 2020 Apr;26(4):782-785</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">32023204</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>N Engl J Med. 2021 Jun 10;384(23):2241</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">34110113</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Euro Surveill. 2018 Sep;23(38):</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">30255836</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>N Engl J Med. 2018 Jul 5;379(1):44-53</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">29972742</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Clin Infect Dis. 2008 May 15;46(10):1555-61</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">18419490</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Am J Trop Med Hyg. 2015 Oct;93(4):718-21</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">26283752</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Pediatr Infect Dis J. 2003 Dec;22(12):1093-6; discussion 1096-8</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">14688573</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>J Infect Dis. 2017 Oct 17;216(7):824-828</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">29029147</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Antiviral Res. 2017 Jul;143:269-277</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">28093339</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Bull World Health Organ. 1972;46(5):599-611</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">4340219</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Lancet Infect Dis. 2014 Jan;14(1):8-9</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">24355025</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Emerg Infect Dis. 2019 May;25(5):980-983</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">30848724</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Bull World Health Organ. 1988;66(4):459-64</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">2844428</ArticleId>
+               </ArticleIdList>
+            </Reference>
+            <Reference>
+               <Citation>Antimicrob Agents Chemother. 2013 Dec;57(12):6246-53</Citation>
+               <ArticleIdList>
+                  <ArticleId IdType="pubmed">24100494</ArticleId>
+               </ArticleIdList>
+            </Reference>
+         </ReferenceList>
+      </PubmedData>
+   </PubmedArticle>
+</PubmedArticleSet>

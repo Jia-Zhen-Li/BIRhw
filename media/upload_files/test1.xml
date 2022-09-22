@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2019//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_190101.dtd">
+<PubmedArticleSet>
+   <PubmedArticle>
+      <MedlineCitation Owner="NLM" Status="MEDLINE">
+         <PMID Version="1">14720564</PMID>
+         <DateCompleted>
+            <Year>2004</Year>
+            <Month>02</Month>
+            <Day>06</Day>
+         </DateCompleted>
+         <DateRevised>
+            <Year>2022</Year>
+            <Month>03</Month>
+            <Day>16</Day>
+         </DateRevised>
+         <Article PubModel="Print">
+            <Journal>
+               <ISSN IssnType="Print">1473-3099</ISSN>
+               <JournalIssue CitedMedium="Print">
+                  <Volume>4</Volume>
+                  <Issue>1</Issue>
+                  <PubDate>
+                     <Year>2004</Year>
+                     <Month>Jan</Month>
+                  </PubDate>
+               </JournalIssue>
+               <Title>The Lancet. Infectious diseases</Title>
+               <ISOAbbreviation>Lancet Infect Dis</ISOAbbreviation>
+            </Journal>
+            <ArticleTitle>Human monkeypox: an emerging zoonosis.</ArticleTitle>
+            <Pagination>
+               <MedlinePgn>15-25</MedlinePgn>
+            </Pagination>
+            <Abstract>
+               <AbstractText>Human monkeypox is a rare viral zoonosis endemic to central and western Africa that has recently emerged in the USA. Laboratory diagnosis is important because the virus can cause disease that is clinically indistinguishable from other pox-like illnesses, particularly smallpox and chickenpox. Although the natural animal reservoir of the monkeypox virus is unknown, rodents are the probable source of its introduction into the USA. A clear understanding of the virulence and transmissibility of human monkeypox has been limited by inconsistencies in epidemiological investigations. Monkeypox is the most important orthopoxvirus infection in human beings since the eradication of smallpox in the 1970s. There is currently no proven treatment for human monkeypox, and questions about its potential as an agent of bioterrorism persist.</AbstractText>
+            </Abstract>
+            <AuthorList CompleteYN="Y">
+               <Author ValidYN="Y">
+                  <LastName>Di Giulio</LastName>
+                  <ForeName>Daniel B</ForeName>
+                  <Initials>DB</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Division of Infectious Diseases and Geographic Medicine, Stanford University School of Medicine, and Center for Molecular Biology in Medicine, Palo Alto Veterans Affairs Health Care System, Palo Alto, CA, USA.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Eckburg</LastName>
+                  <ForeName>Paul B</ForeName>
+                  <Initials>PB</Initials>
+               </Author>
+            </AuthorList>
+            <Language>eng</Language>
+            <PublicationTypeList>
+               <PublicationType UI="D003160">Comparative Study</PublicationType>
+               <PublicationType UI="D016428">Journal Article</PublicationType>
+               <PublicationType UI="D016454">Review</PublicationType>
+            </PublicationTypeList>
+         </Article>
+         <MedlineJournalInfo>
+            <Country>United States</Country>
+            <MedlineTA>Lancet Infect Dis</MedlineTA>
+            <NlmUniqueID>101130150</NlmUniqueID>
+            <ISSNLinking>1473-3099</ISSNLinking>
+         </MedlineJournalInfo>
+         <ChemicalList>
+            <Chemical>
+               <RegistryNumber>0</RegistryNumber>
+               <NameOfSubstance UI="D012900">Smallpox Vaccine</NameOfSubstance>
+            </Chemical>
+         </ChemicalList>
+         <CitationSubset>IM</CitationSubset>
+         <CommentsCorrectionsList>
+            <CommentsCorrections RefType="ErratumIn">
+               <RefSource>Lancet Infect Dis. 2004 Apr;4(4):251</RefSource>
+            </CommentsCorrections>
+            <CommentsCorrections RefType="CommentIn">
+               <RefSource>Lancet Infect Dis. 2004 Oct;4(10):604-5; discussion 605</RefSource>
+               <PMID Version="1">15451482</PMID>
+            </CommentsCorrections>
+         </CommentsCorrectionsList>
+         <MeshHeadingList>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D000328">Adult</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" Type="Geographic" UI="D000349">Africa</DescriptorName>
+               <QualifierName MajorTopicYN="N" UI="Q000453">epidemiology</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D000818">Animals</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D023482">Bioterrorism</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D002648">Child</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D003937">Diagnosis, Differential</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="Y" UI="D004196">Disease Outbreaks</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="Y" UI="D004197">Disease Reservoirs</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D004285">Dogs</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D005076">Exanthema</DescriptorName>
+               <QualifierName MajorTopicYN="N" UI="Q000473">pathology</QualifierName>
+               <QualifierName MajorTopicYN="N" UI="Q000821">virology</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D006801">Humans</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D045908">Monkeypox</DescriptorName>
+               <QualifierName MajorTopicYN="Y" UI="Q000453">epidemiology</QualifierName>
+               <QualifierName MajorTopicYN="N" UI="Q000473">pathology</QualifierName>
+               <QualifierName MajorTopicYN="N" UI="Q000517">prevention &amp; control</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D008993">Monkeypox virus</DescriptorName>
+               <QualifierName MajorTopicYN="N" UI="Q000276">immunology</QualifierName>
+               <QualifierName MajorTopicYN="N" UI="Q000302">isolation &amp; purification</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D011159">Population Surveillance</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D011817">Rabbits</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D051381">Rats</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D012377">Rodentia</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="Y" UI="D012589">Sciuridae</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D012900">Smallpox Vaccine</DescriptorName>
+               <QualifierName MajorTopicYN="N" UI="Q000008">administration &amp; dosage</QualifierName>
+               <QualifierName MajorTopicYN="N" UI="Q000276">immunology</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" Type="Geographic" UI="D014481">United States</DescriptorName>
+               <QualifierName MajorTopicYN="N" UI="Q000453">epidemiology</QualifierName>
+            </MeshHeading>
+         </MeshHeadingList>
+         <NumberOfReferences>66</NumberOfReferences>
+      </MedlineCitation>
+      <PubmedData>
+         <History>
+            <PubMedPubDate PubStatus="pubmed">
+               <Year>2004</Year>
+               <Month>1</Month>
+               <Day>15</Day>
+               <Hour>5</Hour>
+               <Minute>0</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="medline">
+               <Year>2004</Year>
+               <Month>2</Month>
+               <Day>10</Day>
+               <Hour>5</Hour>
+               <Minute>0</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="entrez">
+               <Year>2004</Year>
+               <Month>1</Month>
+               <Day>15</Day>
+               <Hour>5</Hour>
+               <Minute>0</Minute>
+            </PubMedPubDate>
+         </History>
+         <PublicationStatus>ppublish</PublicationStatus>
+         <ArticleIdList>
+            <ArticleId IdType="pubmed">14720564</ArticleId>
+            <ArticleId IdType="pii">S1473309903008569</ArticleId>
+            <ArticleId IdType="doi">10.1016/s1473-3099(03)00856-9</ArticleId>
+         </ArticleIdList>
+      </PubmedData>
+   </PubmedArticle>
+</PubmedArticleSet>

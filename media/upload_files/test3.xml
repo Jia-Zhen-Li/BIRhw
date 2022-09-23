@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2019//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_190101.dtd">
+<PubmedArticleSet>
+   <PubmedArticle>
+      <MedlineCitation Owner="NLM" Status="MEDLINE">
+         <PMID Version="1">28406414</PMID>
+         <DateCompleted>
+            <Year>2018</Year>
+            <Month>04</Month>
+            <Day>17</Day>
+         </DateCompleted>
+         <DateRevised>
+            <Year>2018</Year>
+            <Month>04</Month>
+            <Day>17</Day>
+         </DateRevised>
+         <Article PubModel="Print">
+            <Journal>
+               <ISSN IssnType="Electronic">2261-2211</ISSN>
+               <JournalIssue CitedMedium="Internet">
+                  <Volume>27</Volume>
+                  <Issue>1</Issue>
+                  <PubDate>
+                     <Year>2017</Year>
+                     <Month>Feb</Month>
+                     <Day>01</Day>
+                  </PubDate>
+               </JournalIssue>
+               <Title>Medecine et sante tropicales</Title>
+               <ISOAbbreviation>Med Sante Trop</ISOAbbreviation>
+            </Journal>
+            <ArticleTitle>Review of poxvirus: emergence of monkeypox.</ArticleTitle>
+            <Pagination>
+               <MedlinePgn>29-39</MedlinePgn>
+            </Pagination>
+            <ELocationID EIdType="doi" ValidYN="Y">10.1684/mst.2017.0653</ELocationID>
+            <Abstract>
+               <AbstractText>This article reviews the different types of poxvirus infections. Smallpox, although eradicated, must continue to be monitored because of the potential risk of accidental or voluntary (by bioterrorism) reintroduction. Monkeypox and cowpox viruses are considered to be emergent today ; their high risk of dissemination is due to the increase in international transport as well as trends for new animals as pets and the loss of vaccinal protection against smallpox. Molluscum contagiosum (molluscipoxvirus) causes mild infections, is particularly frequent in children ; in adults it is a marker of the risk of sexually transmitted infections and can, in cases with profuse lesions, reveal AIDS.</AbstractText>
+            </Abstract>
+            <AuthorList CompleteYN="Y">
+               <Author ValidYN="Y">
+                  <LastName>Morand</LastName>
+                  <ForeName>A</ForeName>
+                  <Initials>A</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Service de pédiatrie, CHU Timone, Marseille, France.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Delaigue</LastName>
+                  <ForeName>S</ForeName>
+                  <Initials>S</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Médecins sans Frontières Téléexpertise, Toronto, Canada.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+               <Author ValidYN="Y">
+                  <LastName>Morand</LastName>
+                  <ForeName>J J</ForeName>
+                  <Initials>JJ</Initials>
+                  <AffiliationInfo>
+                     <Affiliation>Service de dermatologie, HIA Sainte-Anne, Toulon, France.</Affiliation>
+                  </AffiliationInfo>
+               </Author>
+            </AuthorList>
+            <Language>eng</Language>
+            <PublicationTypeList>
+               <PublicationType UI="D016428">Journal Article</PublicationType>
+               <PublicationType UI="D016454">Review</PublicationType>
+            </PublicationTypeList>
+            <VernacularTitle>Panorama des poxvirus : émergence du monkeypox.</VernacularTitle>
+         </Article>
+         <MedlineJournalInfo>
+            <Country>France</Country>
+            <MedlineTA>Med Sante Trop</MedlineTA>
+            <NlmUniqueID>101581406</NlmUniqueID>
+            <ISSNLinking>2261-3684</ISSNLinking>
+         </MedlineJournalInfo>
+         <CitationSubset>IM</CitationSubset>
+         <MeshHeadingList>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D006801">Humans</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="N" UI="D045908">Monkeypox</DescriptorName>
+               <QualifierName MajorTopicYN="N" UI="Q000175">diagnosis</QualifierName>
+               <QualifierName MajorTopicYN="N" UI="Q000628">therapy</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+               <DescriptorName MajorTopicYN="Y" UI="D011213">Poxviridae Infections</DescriptorName>
+               <QualifierName MajorTopicYN="N" UI="Q000175">diagnosis</QualifierName>
+               <QualifierName MajorTopicYN="N" UI="Q000628">therapy</QualifierName>
+            </MeshHeading>
+         </MeshHeadingList>
+         <KeywordList Owner="NOTNLM">
+            <Keyword MajorTopicYN="N">cowpox</Keyword>
+            <Keyword MajorTopicYN="N">molluscum contagiosum</Keyword>
+            <Keyword MajorTopicYN="N">monkeypox</Keyword>
+            <Keyword MajorTopicYN="N">orf</Keyword>
+            <Keyword MajorTopicYN="N">poxvirus</Keyword>
+            <Keyword MajorTopicYN="N">smallpox</Keyword>
+            <Keyword MajorTopicYN="N">vaccinia</Keyword>
+         </KeywordList>
+      </MedlineCitation>
+      <PubmedData>
+         <History>
+            <PubMedPubDate PubStatus="entrez">
+               <Year>2017</Year>
+               <Month>4</Month>
+               <Day>14</Day>
+               <Hour>6</Hour>
+               <Minute>0</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="pubmed">
+               <Year>2017</Year>
+               <Month>4</Month>
+               <Day>14</Day>
+               <Hour>6</Hour>
+               <Minute>0</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="medline">
+               <Year>2018</Year>
+               <Month>4</Month>
+               <Day>18</Day>
+               <Hour>6</Hour>
+               <Minute>0</Minute>
+            </PubMedPubDate>
+         </History>
+         <PublicationStatus>ppublish</PublicationStatus>
+         <ArticleIdList>
+            <ArticleId IdType="pubmed">28406414</ArticleId>
+            <ArticleId IdType="pii">mst.2017.0653</ArticleId>
+            <ArticleId IdType="doi">10.1684/mst.2017.0653</ArticleId>
+         </ArticleIdList>
+      </PubmedData>
+   </PubmedArticle>
+</PubmedArticleSet>

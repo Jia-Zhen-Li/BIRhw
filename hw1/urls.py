@@ -8,6 +8,7 @@ urlpatterns = [
     path('test', views.test, name='test'),
     path('file_upload_counter', views.upload_file_counter, name='file_upload_counter'),
     path('url_parser_counter', views.url_parser_counter, name='url_parser_counter'),
+    path('file_upload_zipf', views.uploadfile_zipf, name='uploadfile_zipf'),
 ]
 
 if settings.DEBUG: 

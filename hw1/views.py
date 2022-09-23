@@ -41,7 +41,7 @@ def upload_file_counter(request): # 上傳檔案
             file_text = scrape_texts
             counts = counter(scrape_texts) 
             word_counts = prepared_words_counter(scrape_texts)        # bag_of_words
-            word_counts = top_10_words(word_counts)                   # 前10多關鍵字
+            word_counts = top_n_words(word_counts)                   # 前10多關鍵字
             file_text=find_keyword(file_text,request.POST['keyword']) # 在文本搜尋關鍵字
             print(word_counts)
             error_msg='Upload Success'
@@ -83,10 +83,11 @@ def url_parser_counter(request): #使用url擷取文件
 
 
 # hw2
-def zipf_bar(request):
+def uploadfile_zipf(request):
     error_msg = ''
     file_text=''
     word_counts={}
+    freq_list = []
     if request.method == 'POST':
         form = UploadFileForm_zipf(request.POST, request.FILES)
         if form.is_valid():
@@ -99,17 +100,17 @@ def zipf_bar(request):
                 scrape_texts = json_file_parser(file_text)
             #print(scrape_texts)
             file_text = scrape_texts
-            counts = counter(scrape_texts) 
             word_counts = prepared_words_counter(scrape_texts)        # bag_of_words
-            word_counts = top_10_words(word_counts)                   # 前10多關鍵字
+            word_counts_show = top_n_words(word_counts,n=request.POST['ranks'])                   # 前10多關鍵字
             file_text=find_keyword(file_text,request.POST['keyword']) # 在文本搜尋關鍵字
-            print(word_counts)
+            freq_list = word_freq_list(word_counts)
+            #print(word_counts)
             error_msg='Upload Success'
-            return render(request,'upload.html',{'form':form,'error_msg':error_msg,'file_text':file_text,'counts':counts,'word_counts':word_counts})
+            return render(request,'test.html',{'form':form,'error_msg':error_msg,'file_text':file_text,'word_counts':word_counts_show ,'freq_list':freq_list})
         error_msg = "Can't read the file!Please Try again."
     else:
         form = UploadFileForm_zipf()
-    return render(request,'upload.html',{'form':form,'error_msg':error_msg,'filetext':file_text,'counts':counts,'word_counts':word_counts})
+    return render(request,'test.html',{'form':form,'error_msg':error_msg,'filetext':file_text,'word_counts':word_counts,'freq_list':freq_list})
 
 
 def test(request):
@@ -254,11 +255,12 @@ def prepared_words_counter(text):   # 計算所有單字出現次數及機率
     common_words = sorted(words_counts.items(), key=lambda x: x[1], reverse=True)
     return common_words
 
-def top_10_words(common_words):        # 印出前10多單字
+def top_n_words(common_words,n=10):        # 印出前10多單字
     keyword_counts = []
-    print(keyword_counts)
+    #print(keyword_counts)
     words_class=sum(c[1] for c in common_words)
-    common_words = common_words[:10]
+    if int(n) < len(common_words[0]):
+        common_words = common_words[:n]
     for i in range(len(common_words)):
         count=[0]*2
         count[0]=common_words[i][0]
@@ -312,3 +314,27 @@ def find_keyword(text,key):
 
 # hw2
     
+def text_prepare_have_stopwords(text):  # 文字處理(移除標點符號、數字、stopwords)
+  """
+      text: a string
+        
+      return: modified initial string
+  """
+  # 轉小寫
+  text = text.lower()
+  # 將REPLACE_BY_SPACE_RE 的符號換成空格號
+  text = re.sub(REPLACE_BY_SPACE_RE,' ',text, count=0, flags=0)
+  # 將BAD_SYMBOLS_RE的符號移除
+  text = re.sub(BAD_SYMBOLS_RE,'',text, count=0, flags=0)
+
+  return text
+
+def word_freq_list(common_words): # freq_counts:[times,frequence]
+    freq_counts=[]
+    all_counts=sum(c[1] for c in common_words)
+    for cw in common_words:
+        count=[0]*2
+        count[0] = cw[1]
+        count[1] = cw[1]/all_counts
+        freq_counts.append(count)
+    return freq_counts

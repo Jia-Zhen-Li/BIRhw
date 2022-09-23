@@ -1,7 +1,7 @@
 from django import forms
 
-class UploadFileForm_counter(forms.Form): # 上傳檔案
-    file = forms.FileField() #label='Upload File'
+class UploadFileForm_counter(forms.Form): 
+    file = forms.FileField() 
     keyword = forms.CharField(max_length=50,
                           widget=forms.TextInput(attrs={'placeholder': 'Insert the keyword'})) 
 
@@ -11,8 +11,8 @@ class Get_Url_counter(forms.Form):
     keyword = forms.CharField(max_length=50,
                           widget=forms.TextInput(attrs={'placeholder': 'Insert the keyword'})) 
 
-class UploadFileForm_zipf(forms.Form): # 上傳檔案
-    file = forms.FileField() #label='Upload File'
+class UploadFileForm_zipf(forms.Form): 
+    file = forms.FileField() 
     keyword = forms.CharField(max_length=50,
                           widget=forms.TextInput(attrs={'placeholder': 'Insert the keyword'}))
     ranks = forms.CharField(max_length=50,
@@ -23,5 +23,5 @@ class Get_Url_zipf(forms.Form):
                           widget=forms.TextInput(attrs={'placeholder': 'Insert the url'})) #url to parser
     keyword = forms.CharField(max_length=50,
                           widget=forms.TextInput(attrs={'placeholder': 'Insert the keyword'})) 
-    ranks = forms.CharField(max_length=50,
+    ranks = forms.IntegerField(
                           widget=forms.TextInput(attrs={'placeholder': 'Insert the number of output ranks'})) 

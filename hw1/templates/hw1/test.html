@@ -15,8 +15,8 @@
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="." class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="file_upload" class="nav-link px-2 text-white">File_Upload</a></li>
-                    <li><a href="url_parser" class="nav-link px-2 text-white">Webpage_Scraper</a></li>
+                    <li><a href="file_upload_counter" class="nav-link px-2 text-white">File_Upload</a></li>
+                    <li><a href="url_parser_counter" class="nav-link px-2 text-white">Webpage_Scraper</a></li>
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -39,6 +39,34 @@
                 <td>{{ error_msg }}</td>
             </tr>
         </table>
+
+        <p></p>
+        <table align="center" width="800" border="1">
+            <tr align="center">
+                <td class="p-3 text-bg-dark bg-opacity-25" colspan="3"><h3>Text</h3></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    {% autoescape off %}
+                    {{ url_text }}
+                    {% endautoescape %}
+                </td>
+                <td></td>
+            </tr>
+        </table>
+        <p></p>
+        <table align="center" width="800" border="1">
+            <tr align="center">
+                <td class="p-3 text-bg-dark bg-opacity-10" colspan="3"><h3>TOP 10 Keyword's density</h3></td>
+            </tr>
+            {%for c in word_counts %}
+            <tr>
+                <td>{{c.0}}</td>
+                <td>{{c.1}}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </form>
 
 
@@ -47,37 +75,21 @@
         <canvas id="myChart" width="40" height="10"></canvas>
     </div>
     <script>
-    const labels = [ {{ data_len }} ]
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-        ];
+        const labels = "{{ freq_list.0 }}"
+        const datas = " {{ freq_list.1 }} "
 
         const data = {
             label: 'Scatter Dataset',
             datasets: [{
-                label: 'My First dataset',
+                label: 'Zipf Curve',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
-                data: [{
-                    x: 0.5,
-                    y: 0.0
-                }, {
-                    x: 0.2,
-                    y: 1.0
-                }, {
-                    x: 0.88,
-                    y: 0.5
-                }, {
-                    x: 0.5,
-                    y: 0.65
-                }],
-            }],
-            pointStyle: 'rectRounded',
-            backgroundColor: 'rgb(12, 99, 132)'
+                pointStyle: 'rectRounded',
+                data: datas,
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
         };
 
         const config = {

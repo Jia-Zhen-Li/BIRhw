@@ -10,11 +10,16 @@ nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.stem import *
 from nltk.stem.snowball import SnowballStemmer
-import requests
+from nltk.metrics.distance import edit_distance
+from nltk.util import ngrams
+nltk.download('words')
+from nltk.corpus import words
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
+from textblob import TextBlob, Word
+from random import choice
 #from hw1.functions import handle_uploaded_file
 # Create your views here.
 
@@ -43,7 +48,7 @@ def upload_file_counter(request): # 上傳檔案
             word_counts = prepared_words_counter(scrape_texts)        # bag_of_words
             word_counts = top_n_words(word_counts)                   # 前10多關鍵字
             file_text=find_keyword(file_text,request.POST['keyword']) # 在文本搜尋關鍵字
-            print(word_counts)
+            #print(word_counts)
             error_msg='Upload Success'
             return render(request,'upload.html',{'form':form,'error_msg':error_msg,'file_text':file_text,'counts':counts,'word_counts':word_counts})
         error_msg = "Can't read the file!Please Try again."
@@ -85,8 +90,9 @@ def url_parser_counter(request): #使用url擷取文件
 # hw2
 def uploadfile_zipf(request):
     error_msg = ''
+    keyword_msg = ''
     file_text=''
-    word_counts={}
+    word_counts_show={}
     freq_list = []
     if request.method == 'POST':
         form = UploadFileForm_zipf(request.POST, request.FILES)
@@ -101,16 +107,22 @@ def uploadfile_zipf(request):
             #print(scrape_texts)
             file_text = scrape_texts
             word_counts = prepared_words_counter(scrape_texts)        # bag_of_words
-            word_counts_show = top_n_words(word_counts,n=request.POST['ranks'])                   # 前10多關鍵字
-            file_text=find_keyword(file_text,request.POST['keyword']) # 在文本搜尋關鍵字
+            word_counts_show = top_n_words(word_counts,n=request.POST['ranks'])  # 前10多關鍵字
+            keyword = textCheck(request.POST['keyword'],[x[0] for x in word_counts])
+            print(keyword)
+            print(request.POST['keyword'])
+            file_text=find_keyword(file_text,keyword) # 在文本搜尋關鍵字
             freq_list = word_freq_list(word_counts)
             #print(word_counts)
             error_msg='Upload Success'
-            return render(request,'test.html',{'form':form,'error_msg':error_msg,'file_text':file_text,'word_counts':word_counts_show ,'freq_list':freq_list})
+            if(keyword != request.POST['keyword']):
+                keyword_msg = 'Showing results for the following terms: '+'<b style=\"color:red\">' +keyword +'</b>'
+            print(keyword_msg)
+            return render(request,'test.html',{'form':form,'error_msg':error_msg,'keyword_msg':keyword_msg,'file_text':file_text,'word_counts':word_counts_show ,'freq_list':freq_list})
         error_msg = "Can't read the file!Please Try again."
     else:
         form = UploadFileForm_zipf()
-    return render(request,'test.html',{'form':form,'error_msg':error_msg,'filetext':file_text,'word_counts':word_counts,'freq_list':freq_list})
+    return render(request,'test.html',{'form':form,'error_msg':error_msg,'keyword_msg':keyword_msg,'filetext':file_text,'word_counts':word_counts_show,'freq_list':freq_list})
 
 
 def test(request):
@@ -132,6 +144,7 @@ def readFile(f): # 讀取檔案
     fp = open(read_path,'r+',encoding="utf-8")
     #print(fp.read())
     file_text = fp.read()
+    fp.close()
     return file_text
 
 
@@ -259,8 +272,10 @@ def top_n_words(common_words,n=10):        # 印出前10多單字
     keyword_counts = []
     #print(keyword_counts)
     words_class=sum(c[1] for c in common_words)
-    if int(n) < len(common_words[0]):
-        common_words = common_words[:n]
+    if int(n) < len(common_words):
+        #print('n= ',n)
+        #print('len= ',len(common_words[0]),len(common_words))
+        common_words = common_words[:int(n)]
     for i in range(len(common_words)):
         count=[0]*2
         count[0]=common_words[i][0]
@@ -284,11 +299,15 @@ def text_prepare(text):  # 文字處理(移除標點符號、數字、stopwords)
       return: modified initial string
   """
   # 轉小寫
+  #print('yuanlai: ',text)
   text = text.lower()
+  #print('lower: ',text)
   # 將REPLACE_BY_SPACE_RE 的符號換成空格號
   text = re.sub(REPLACE_BY_SPACE_RE,' ',text, count=0, flags=0)
+  #print('re: ',text)
   # 將BAD_SYMBOLS_RE的符號移除
   text = re.sub(BAD_SYMBOLS_RE,'',text, count=0, flags=0)
+  #print('bad: ',text)
   # 刪除stopwords
   text_split = text.split()
   text=""
@@ -296,15 +315,19 @@ def text_prepare(text):  # 文字處理(移除標點符號、數字、stopwords)
     if(not(t in STOPWORDS)):
       text = text+t+' '
   text = text[:-1] #將最後的空格刪除
+  #print(text)
 
   return text
 
-def find_keyword(text,key):
+def find_keyword(text,keyword):
     #將keyword tag出來
-    matches = list(re.finditer(key.lower(),text.lower()))
-    matches.reverse()
-    for i in matches:
-        text=text[:i.start()]+"<mark style='color:green'>"+ text[i.start():i.end()] + '</mark>' +text[i.end():]
+    for key in keyword.split():
+        color = "".join([choice("0123456789ABCDEF") for k in range(6)])
+        matches = list(re.finditer(key.lower(),text.lower()))
+        matches.reverse()
+        for i in matches:
+            text=text[:i.start()]+"<mark style='color:#"+ color +"'>"+ text[i.start():i.end()] + '</mark>' +text[i.end():]
+    
     #將換行符replace成<br>
     char='\n'
     print('no change',text.count(char))
@@ -330,11 +353,29 @@ def text_prepare_have_stopwords(text):  # 文字處理(移除標點符號、數�
   return text
 
 def word_freq_list(common_words): # freq_counts:[times,frequence]
-    freq_counts=[]
+    freq_counts=[[(i+1) for i in range(len(common_words))]]
+    times=[]
+    freq=[]
     all_counts=sum(c[1] for c in common_words)
+    print("words")
     for cw in common_words:
-        count=[0]*2
-        count[0] = cw[1]
-        count[1] = cw[1]/all_counts
-        freq_counts.append(count)
+        print(cw[0])
+        times.append(cw[1])
+        freq.append(cw[1]/all_counts)
+    #print(freq_counts)
+    freq_counts.append(times)
+    freq_counts.append(freq)
+    #print(freq_counts)
     return freq_counts
+
+def textCheck(sentence,words_list):
+    print(words_list)
+    correct_words = sorted(words.words()+list(words_list))
+    output=''
+    for word in sentence.split():
+        temp = [(edit_distance(word,w),w)
+                for w in correct_words if w[0]==word[0]]
+        print(sorted(temp, key = lambda val:val[0])[0][1])
+        output += sorted(temp, key = lambda val:val[0])[0][1] + ' '
+    output = output[:-1] #去掉最後的' ' 
+    return output

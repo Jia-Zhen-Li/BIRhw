@@ -15,7 +15,7 @@ class UploadFileForm_zipf(forms.Form):
     file = forms.FileField() 
     keyword = forms.CharField(max_length=50,
                           widget=forms.TextInput(attrs={'placeholder': 'Insert the keyword'}))
-    ranks = forms.CharField(max_length=50,
+    ranks = forms.IntegerField(
                           widget=forms.TextInput(attrs={'placeholder': 'Insert the number of output ranks'})) 
 
 class Get_Url_zipf(forms.Form):

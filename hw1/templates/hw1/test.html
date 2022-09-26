@@ -29,16 +29,38 @@
 
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <h1>Upload file</h1>
-        <table>
-            <tr>
-                <td>{{form}}</td>
-                <td><input type="submit" value="Submit" class="btn btn-outline-secondary" /></td>
+        <table align="center" width="800" height="200" border="1">
+            <tr align="center">
+                <td class="p-3 text-bg-dark bg-opacity-75" colspan="3"><h3>Insert</h3></td>
             </tr>
             <tr>
-                <td>{{ error_msg }}</td>
+                <td align="center">Choose File</td>
+                <td>{{form.file}}</td>
+            </tr>
+            <tr>
+                <td align="center">Search</td>
+                <td>{{form.keyword}}</td>
+            </tr>
+            <tr>
+                <td align="center">Ranks</td>
+                <td>{{form.ranks}}</td>
+                <td align="center"><input type="submit" value="Submit" class="btn btn-outline-secondary" /></td>
             </tr>
         </table>
+            <table align="center" width="800">
+                <tr>
+                    <td align="center">{{ error_msg }}</td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        {% autoescape off %}
+                        {{ keyword_msg }}
+                        {% endautoescape %}
+                    </td>
+                </tr>
+            </table>
+            <p></p>
+      
 
         <p></p>
         <table align="center" width="800" border="1">
@@ -49,7 +71,7 @@
                 <td></td>
                 <td>
                     {% autoescape off %}
-                    {{ url_text }}
+                    {{ file_text }}
                     {% endautoescape %}
                 </td>
                 <td></td>
@@ -69,25 +91,34 @@
         </table>
     </form>
 
-
+    <p></p>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <div width="40" height="10">
-        <canvas id="myChart" width="40" height="10"></canvas>
-    </div>
+    <table align="center" width="800" border="1">
+        <tr align="center">
+            <td class="p-3 " colspan="3"><h3 style="color:darkgray">Zipf Curve</h3></td>
+        </tr>
+        <tr>
+            <td>
+                <div width="400" height="100">
+                    <canvas id="myChart" width="400" height="100"></canvas>
+                </div>
+            </td>
+        </tr>
+    </table>
     <script>
-        const labels = "{{ freq_list.0 }}"
-        const datas = " {{ freq_list.1 }} "
+        const freq_list = {{freq_list|safe}};
+        const labels = freq_list[0];
+        const datas = freq_list[1];
 
         const data = {
-            label: 'Scatter Dataset',
+            labels: labels,
             datasets: [{
-                label: 'Zipf Curve',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
+                label: 'datas',
+                backgroundColor: 'rgb(100,100,100)',
+                borderColor: 'rgb(150, 150, 150)',
                 pointStyle: 'rectRounded',
                 data: datas,
                 fill: false,
-                borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1
             }]
         };

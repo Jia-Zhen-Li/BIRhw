@@ -47,66 +47,86 @@
                 <td align="center"><input type="submit" value="Submit" class="btn btn-outline-secondary" /></td>
             </tr>
         </table>
-            <table align="center" width="800">
-                <tr>
-                    <td align="center">{{ error_msg }}</td>
-                </tr>
-                <tr>
-                    <td align="center">
-                        {% autoescape off %}
-                        {{ keyword_msg }}
-                        {% endautoescape %}
-                    </td>
-                </tr>
-            </table>
-            <p></p>
-      
-
-        <p></p>
-        <table align="center" width="800" border="1">
-            <tr align="center">
-                <td class="p-3 text-bg-dark bg-opacity-25" colspan="3"><h3>Text</h3></td>
+        <table align="center" width="800">
+            <tr>
+                <td align="center">{{ error_msg }}</td>
             </tr>
             <tr>
-                <td></td>
-                <td>
+                <td align="center">
                     {% autoescape off %}
-                    {{ file_text }}
+                    {{ keyword_msg }}
                     {% endautoescape %}
                 </td>
-                <td></td>
             </tr>
-        </table>
-        <p></p>
-        <table align="center" width="800" border="1">
-            <tr align="center">
-                <td class="p-3 text-bg-dark bg-opacity-10" colspan="3"><h3>TOP 10 Keyword's density</h3></td>
-            </tr>
-            {%for c in word_counts %}
-            <tr>
-                <td>{{c.0}}</td>
-                <td>{{c.1}}</td>
-            </tr>
-            {% endfor %}
         </table>
     </form>
 
+
     <p></p>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <p></p>
+    <table align="center" width="800" border="1">
+        <tr align="center">
+            <td class="p-3 text-bg-dark bg-opacity-25" colspan="3"><h3>Text</h3></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                {% autoescape off %}
+                {{ file_text }}
+                {% endautoescape %}
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <p></p>
+    <table align="center" width="800" border="1">
+        <tr align="center">
+            <td class="p-3 text-bg-dark bg-opacity-10" colspan="3"><h3> Keyword's density</h3></td>
+        </tr>
+        <tr>
+            <td style="background-color:gray"><b>Word</b></td>
+            <td style="background-color:gray"><b>Freq</b></td>
+            <td colspan={{ranks}} rowspan={{ranks}}>
+                <div>
+                    <canvas id="Chart1"></canvas>
+                </div>
+            </td>
+        </tr>
+        {%for c in pre_word_counts %}
+        <tr>
+            <td>{{c.0}}</td>
+            <td>{{c.1}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p></p>
+
     <table align="center" width="800" border="1">
         <tr align="center">
             <td class="p-3 " colspan="3"><h3 style="color:darkgray">Zipf Curve</h3></td>
         </tr>
         <tr>
-            <td>
-                <div width="400" height="100">
-                    <canvas id="myChart" width="400" height="100"></canvas>
+            <td style="background-color:gray"><b>Word</b></td>
+            <td style="background-color:gray"><b>Freq</b></td>
+            <td colspan={{ranks}} rowspan={{ranks}}>
+                <div>
+                    <canvas id="Chart2"></canvas>
                 </div>
             </td>
         </tr>
+        {%for c in all_word_counts %}
+        <tr>
+            <td>{{c.0}}</td>
+            <td>{{c.1}}</td>
+        </tr>
+        {% endfor %}
     </table>
+    <p></p>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        const freq_list = {{freq_list|safe}};
+        const freq_list = {{pre_freq_list|safe}};
         const labels = freq_list[0];
         const datas = freq_list[1];
 
@@ -128,10 +148,39 @@
             data: data,
             options: {}
         };
+        const Chart1 = new Chart(
+            document.getElementById('Chart1'),
+            config
+        );
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        const myChart = new Chart(
-            document.getElementById('myChart'),
+        const freq_list2 = {{all_freq_list|safe}};
+        const labels2 = freq_list2[0];
+        const datas2 = freq_list2[1];
+
+        const data = {
+            labels: labels2,
+            datasets: [{
+                label: 'datas',
+                backgroundColor: 'rgb(100,100,100)',
+                borderColor: 'rgb(150, 150, 150)',
+                pointStyle: 'rectRounded',
+                data: datas2,
+                fill: false,
+                tension: 0.1
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {}
+        };
+
+        const Chart2 = new Chart(
+            document.getElementById('Chart2'),
             config
         );
     </script>

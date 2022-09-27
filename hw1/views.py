@@ -18,7 +18,6 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
-from textblob import TextBlob, Word
 from random import choice
 #from hw1.functions import handle_uploaded_file
 # Create your views here.
@@ -92,8 +91,10 @@ def uploadfile_zipf(request):
     error_msg = ''
     keyword_msg = ''
     file_text=''
-    word_counts_show={}
-    freq_list = []
+    pre_word_counts={}
+    all_word_counts={}
+    pre_freq_list = []
+    all_freq_list = []
     if request.method == 'POST':
         form = UploadFileForm_zipf(request.POST, request.FILES)
         if form.is_valid():
@@ -106,23 +107,26 @@ def uploadfile_zipf(request):
                 scrape_texts = json_file_parser(file_text)
             #print(scrape_texts)
             file_text = scrape_texts
-            word_counts = prepared_words_counter(scrape_texts)        # bag_of_words
-            word_counts_show = top_n_words(word_counts,n=request.POST['ranks'])  # 前10多關鍵字
+            word_counts = prepared_words_counter(scrape_texts,stopwords=False,stem=False)        # bag_of_words
+            all_word_counts = top_n_words(word_counts,n=request.POST['ranks']) # 前n個關鍵字(未刪除stopwords)
+            all_freq_list = word_freq_list(word_counts)
+            word_counts = prepared_words_counter(scrape_texts) 
+            pre_word_counts = top_n_words(word_counts,n=request.POST['ranks'])  # 前n個關鍵字(前處理)
+            pre_freq_list = word_freq_list(word_counts)
             keyword = textCheck(request.POST['keyword'],[x[0] for x in word_counts])
             print(keyword)
             print(request.POST['keyword'])
             file_text=find_keyword(file_text,keyword) # 在文本搜尋關鍵字
-            freq_list = word_freq_list(word_counts)
             #print(word_counts)
             error_msg='Upload Success'
             if(keyword != request.POST['keyword']):
                 keyword_msg = 'Showing results for the following terms: '+'<b style=\"color:red\">' +keyword +'</b>'
             print(keyword_msg)
-            return render(request,'test.html',{'form':form,'error_msg':error_msg,'keyword_msg':keyword_msg,'file_text':file_text,'word_counts':word_counts_show ,'freq_list':freq_list})
+            return render(request,'test.html',{'form':form,'error_msg':error_msg,'keyword_msg':keyword_msg,'file_text':file_text,'pre_word_counts':pre_word_counts ,'all_word_counts':all_word_counts ,'pre_freq_list':pre_freq_list,'all_freq_list':all_freq_list,"ranks":str(int(request.POST['ranks'])+1)})
         error_msg = "Can't read the file!Please Try again."
     else:
         form = UploadFileForm_zipf()
-    return render(request,'test.html',{'form':form,'error_msg':error_msg,'keyword_msg':keyword_msg,'filetext':file_text,'word_counts':word_counts_show,'freq_list':freq_list})
+    return render(request,'test.html',{'form':form,'error_msg':error_msg,'keyword_msg':keyword_msg})
 
 
 def test(request):
@@ -254,13 +258,14 @@ def counter(text):
     return counts
 
 
-def prepared_words_counter(text):   # 計算所有單字出現次數及機率
+def prepared_words_counter(text,stopwords=True,stem=True):   # 計算所有單字出現次數及機率
     # (xml)計算words的數量
     stemmer = SnowballStemmer('english') # stemmer
     words_counts = {} # word dictionary
-    title_pre = text_prepare(text) # 前處理
+    title_pre = text_prepare(text,stopwords) # 前處理
     for t in title_pre.split():    # bag_of_words
-        t = stemmer.stem(t)
+        if stem:
+            t = stemmer.stem(t)
         if(words_counts.get(t)):
             words_counts[t] += 1
         else:
@@ -292,7 +297,7 @@ REPLACE_BY_SPACE_RE = re.compile('[/(){}\[\]\|@,;]')
 BAD_SYMBOLS_RE = re.compile('[^0-9a-z #+_]')
 STOPWORDS = set(stopwords.words('english'))
 
-def text_prepare(text):  # 文字處理(移除標點符號、數字、stopwords)
+def text_prepare(text,stopwords=True):  # 文字處理(移除標點符號、數字、stopwords)
   """
       text: a string
         
@@ -309,12 +314,13 @@ def text_prepare(text):  # 文字處理(移除標點符號、數字、stopwords)
   text = re.sub(BAD_SYMBOLS_RE,'',text, count=0, flags=0)
   #print('bad: ',text)
   # 刪除stopwords
-  text_split = text.split()
-  text=""
-  for t in text_split:
-    if(not(t in STOPWORDS)):
-      text = text+t+' '
-  text = text[:-1] #將最後的空格刪除
+  if stopwords:
+    text_split = text.split()
+    text=""
+    for t in text_split:
+        if(not(t in STOPWORDS)):
+            text = text+t+' '
+    text = text[:-1] #將最後的空格刪除
   #print(text)
 
   return text
@@ -375,7 +381,8 @@ def textCheck(sentence,words_list):
     for word in sentence.split():
         temp = [(edit_distance(word,w),w)
                 for w in correct_words if w[0]==word[0]]
-        print(sorted(temp, key = lambda val:val[0])[0][1])
+        #print(sorted(temp, key = lambda val:val[0])[0][1])
+        print(sorted(temp, key = lambda val:val[0])[0][:10])
         output += sorted(temp, key = lambda val:val[0])[0][1] + ' '
     output = output[:-1] #去掉最後的' ' 
     return output

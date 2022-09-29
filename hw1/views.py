@@ -36,7 +36,7 @@ def upload_file_counter(request): # 上傳檔案
         if form.is_valid():
             handle_uploaded_file(request.FILES['file'])
             file_text=readFile(request.FILES['file'])
-            print(file_text)
+            #print(file_text)
             if(request.FILES['file'].name[-3:]=='xml'): #判斷是xml檔還是json
                 scrape_texts = xml_file_parser(file_text)
             else:
@@ -100,7 +100,7 @@ def uploadfile_zipf(request):
         if form.is_valid():
             handle_uploaded_file(request.FILES['file'])
             file_text=readFile(request.FILES['file'])
-            print(file_text)
+            #print(file_text)
             if(request.FILES['file'].name[-3:]=='xml'): #判斷是xml檔還是json
                 scrape_texts = xml_file_parser(file_text)
             else:
@@ -114,30 +114,74 @@ def uploadfile_zipf(request):
             pre_word_counts = top_n_words(word_counts,n=request.POST['ranks'])  # 前n個關鍵字(前處理)
             pre_freq_list = word_freq_list(word_counts)
             keyword = textCheck(request.POST['keyword'],[x[0] for x in word_counts])
-            print(keyword)
-            print(request.POST['keyword'])
+            #print(keyword)
+            #print(request.POST['keyword'])
             file_text=find_keyword(file_text,keyword) # 在文本搜尋關鍵字
             #print(word_counts)
             error_msg='Upload Success'
-            if(keyword != request.POST['keyword']):
-                keyword_msg = 'Showing results for the following terms: '+'<b style=\"color:red\">' +keyword +'</b>'
-            print(keyword_msg)
-            return render(request,'test.html',{'form':form,'error_msg':error_msg,'keyword_msg':keyword_msg,'file_text':file_text,'pre_word_counts':pre_word_counts ,'all_word_counts':all_word_counts ,'pre_freq_list':pre_freq_list,'all_freq_list':all_freq_list,"ranks":str(int(request.POST['ranks'])+1)})
+            keyword_msg = keywordCheck(keyword,request.POST['keyword'])
+            #print(keyword_msg)
+            return render(request,'upload_zipf.html',{'form':form,'error_msg':error_msg,'keyword_msg':keyword_msg,'file_text':file_text,'pre_word_counts':pre_word_counts ,'all_word_counts':all_word_counts ,'pre_freq_list':pre_freq_list,'all_freq_list':all_freq_list,"ranks":str(int(request.POST['ranks'])+1)})
         error_msg = "Can't read the file!Please Try again."
     else:
         form = UploadFileForm_zipf()
-    return render(request,'test.html',{'form':form,'error_msg':error_msg,'keyword_msg':keyword_msg})
+    return render(request,'upload_zipf.html',{'form':form,'error_msg':error_msg,'keyword_msg':keyword_msg})
 
+def url_zipf(request):
+    error_msg = ''
+    keyword_msg = ''
+    file_text=''
+    pre_word_counts={}
+    all_word_counts={}
+    pre_freq_list = []
+    all_freq_list = []
+    if request.method == 'POST':
+        form = Get_Url_zipf(request.POST)
+        get_url = request.POST['url']
+        keyword=request.POST['keyword']
+        #print('url',get_url )
+        try:
+            url_text=scrape(get_url)
+        except:
+            error_msg = "Can't find this url!Please Try again."
+            return render(request,'url_zipf.html',{'form':form,'error_msg':error_msg,'keyword_msg':keyword_msg})
+        else:
+            if(get_url.find('pubmed')!=-1): #判斷是pubmed還是twitter
+                scrape_texts = xml_url_parser(url_text)
+            else:
+                scrape_texts = json_url_parser(url_text)
+            #print(scrape_texts)
+            file_text = scrape_texts
+            word_counts = prepared_words_counter(scrape_texts,stopwords=False,stem=False)        # bag_of_words
+            all_word_counts = top_n_words(word_counts,n=request.POST['ranks']) # 前n個關鍵字(未刪除stopwords)
+            all_freq_list = word_freq_list(word_counts)
+            word_counts = prepared_words_counter(scrape_texts) 
+            pre_word_counts = top_n_words(word_counts,n=request.POST['ranks'])  # 前n個關鍵字(前處理)
+            pre_freq_list = word_freq_list(word_counts)
+            keyword = textCheck(request.POST['keyword'],[x[0] for x in word_counts])
+            #print(keyword)
+            #print(request.POST['keyword'])
+            file_text=find_keyword(file_text,keyword) # 在文本搜尋關鍵字
+            #print(word_counts)
+            error_msg='Upload Success'
+            keyword_msg = keywordCheck(keyword,request.POST['keyword'])
+            #print(keyword_msg)
+            return render(request,'url_zipf.html',{'form':form,'error_msg':error_msg,'keyword_msg':keyword_msg,'file_text':file_text,'pre_word_counts':pre_word_counts ,'all_word_counts':all_word_counts ,'pre_freq_list':pre_freq_list,'all_freq_list':all_freq_list,"ranks":str(int(request.POST['ranks'])+1)})
+    else:
+        form = Get_Url_zipf()
+    return render(request,'url_zipf.html',{'form':form,'error_msg':error_msg,'keyword_msg':keyword_msg})
 
 def test(request):
     return render(request,'test.html')
+
+
 
 
 # functions
 # hw1
 def handle_uploaded_file(f): # 儲存檔案
     save_path = os.path.join(settings.MEDIA_ROOT,'upload_files', f.name)
-    print(save_path)
+    #print(save_path)
     fp = open(save_path, 'wb+')
     for chunk in f.chunks():
         fp.write(chunk)
@@ -158,8 +202,8 @@ def scrape(url): # 從網頁擷取內容
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
-    #driverPath=os.path.join(settings.BASE_DIR,'chromedrive','chromedriver.exe') #存放chromedriver的路徑
-    driverPath='chromedriver'
+    driverPath=os.path.join(settings.BASE_DIR,'chromedrive','chromedriver.exe') #存放chromedriver的路徑
+    #driverPath='chromedriver'
     chrome = webdriver.Chrome(executable_path=driverPath,chrome_options=options) 
     #建立webdriver物件，(executable_path=瀏覽器驅動程式路徑，chrome_options=瀏覽器設定)。
     chrome.get(url)   # 前往要爬取的網頁網址
@@ -336,9 +380,9 @@ def find_keyword(text,keyword):
     
     #將換行符replace成<br>
     char='\n'
-    print('no change',text.count(char))
+    #print('no change',text.count(char))
     text=text.replace(char, "<br>")
-    print('change',text.count(char))
+    #print('change',text.count(char))
     return text
 
 # hw2
@@ -363,9 +407,9 @@ def word_freq_list(common_words): # freq_counts:[times,frequence]
     times=[]
     freq=[]
     all_counts=sum(c[1] for c in common_words)
-    print("words")
+    #print("words")
     for cw in common_words:
-        print(cw[0])
+        #print(cw[0])
         times.append(cw[1])
         freq.append(cw[1]/all_counts)
     #print(freq_counts)
@@ -375,14 +419,29 @@ def word_freq_list(common_words): # freq_counts:[times,frequence]
     return freq_counts
 
 def textCheck(sentence,words_list):
-    print(words_list)
+    #print(words_list)
     correct_words = sorted(words.words()+list(words_list))
     output=''
     for word in sentence.split():
         temp = [(edit_distance(word,w),w)
                 for w in correct_words if w[0]==word[0]]
         #print(sorted(temp, key = lambda val:val[0])[0][1])
-        print(sorted(temp, key = lambda val:val[0])[0][:10])
+        #print(sorted(temp, key = lambda val:val[0])[0][:10])
         output += sorted(temp, key = lambda val:val[0])[0][1] + ' '
     output = output[:-1] #去掉最後的' ' 
     return output
+
+def keywordCheck(keywords,insert):   # 若user輸入有誤，紅標提醒錯誤字。
+    keyword_msg = 'Showing results for the following terms: '
+    key = keywords.split()
+    ins = insert.split()
+    f=0
+    for i in range(len(key)):
+        if(key[i] != ins[i]):
+            keyword_msg += '<b style=\"color:red\"> ' + key[i] +'</b>'
+            f +=1
+        else:
+            keyword_msg += '<font style=\"color:gray\"> ' + key[i] +'</font>'
+    if f==0:
+        keyword_msg = ''
+    return keyword_msg

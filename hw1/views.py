@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.conf import settings
 from hw1.forms import UploadFileForm_counter, Get_Url_counter
-from hw1.forms import UploadFileForm_zipf, Get_Url_zipf
 import os, json, nltk, re
 nltk.download('punkt')
 from nltk.tokenize import sent_tokenize, RegexpTokenizer
@@ -86,6 +85,8 @@ def url_parser_counter(request): #使用url擷取文件
     return render(request,'url_parser.html',{'url_text':url_text,'form':form,'error_msg':error_msg,'counts':counts,'word_counts':word_counts})
 
 
+def test(request):
+    return render(request,'test.html')
 
 # functions
 # hw1

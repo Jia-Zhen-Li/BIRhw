@@ -19,5 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('hw1/', include('hw1.urls')),
+    path('hw2/', include('hw2.urls')),
 
 ]

@@ -58,7 +58,7 @@ ROOT_URLCONF = "BIRhw.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'hw1', 'templates','hw1'),],
+        "DIRS": [os.path.join(BASE_DIR, 'hw1', 'templates','hw1'),os.path.join(BASE_DIR, 'hw2', 'templates','hw2'),],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

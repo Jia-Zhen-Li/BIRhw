@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.conf import settings
@@ -37,22 +39,22 @@ def uploadfile_zipf(request):
             handle_uploaded_file(request.FILES['file'])
             file_text=readFile(request.FILES['file'])
             #print(file_text)
-            if(request.FILES['file'].name[-3:]=='xml'): #§PÂ_¬OxmlÀÉÁÙ¬Ojson
+            if(request.FILES['file'].name[-3:]=='xml'): #åˆ¤æ–·æ˜¯xmlæª”é‚„æ˜¯json
                 scrape_texts = xml_file_parser(file_text)
             else:
                 scrape_texts = json_file_parser(file_text)
             #print(scrape_texts)
             file_text = scrape_texts
             word_counts = prepared_words_counter(scrape_texts,stopwords=False,stem=False)        # bag_of_words
-            all_word_counts = top_n_words(word_counts,n=request.POST['ranks']) # «en­ÓÃöÁä¦r(¥¼§R°£stopwords)
+            all_word_counts = top_n_words(word_counts,n=request.POST['ranks'])# å‰nå€‹é—œéµå­—(æœªåˆªé™¤stopwords)
             all_freq_list = word_freq_list(word_counts)
             word_counts = prepared_words_counter(scrape_texts) 
-            pre_word_counts = top_n_words(word_counts,n=request.POST['ranks'])  # «en­ÓÃöÁä¦r(«e³B²z)
+            pre_word_counts = top_n_words(word_counts,n=request.POST['ranks'])   # å‰nå€‹é—œéµå­—(å‰è™•ç†)
             pre_freq_list = word_freq_list(word_counts)
-            keyword = textCheck(request.POST['keyword'],[x[0] for x in prepared_words_counter(scrape_texts,stopwords=True,stem=False)]) #¨Ï¥Î§R°£stopwords¡B¥¼stemªº¡A°»¿ù¿é¤Jªºkeywords
+            keyword = textCheck(request.POST['keyword'],[x[0] for x in prepared_words_counter(scrape_texts,stopwords=True,stem=False)]) #ï¿½Ï¥Î§Rï¿½ï¿½stopwordsï¿½Bï¿½ï¿½stemï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½keywords
             #print(keyword)
             #print(request.POST['keyword'])
-            file_text=find_keyword(file_text,keyword) # ¦b¤å¥»·j´MÃöÁä¦r
+            file_text=find_keyword(file_text,keyword)# åœ¨æ–‡æœ¬æœå°‹é—œéµå­—
             print(word_counts)
             error_msg='Upload Success'
             keyword_msg = keywordCheck(keyword,request.POST['keyword'])
@@ -67,6 +69,8 @@ def url_zipf(request):
     error_msg = ''
     keyword_msg = ''
     file_text=''
+    scrape_texts=''
+    show_texts=''
     pre_word_counts={}
     all_word_counts={}
     pre_freq_list = []
@@ -75,27 +79,35 @@ def url_zipf(request):
         web_type = request.POST['webtype']
         form = Get_Url_zipf(request.POST)
         term = request.POST['term']
-        size = request.POST['size']
+        size = int(request.POST['size'])
         keyword=request.POST['keyword']
         #print('url',get_url )
-        if web_type = 'PUBMED':
-            scrape_texts=
-            file_text = scrape_texts
-            word_counts = prepared_words_counter(scrape_texts,stopwords=False,stem=False)        # bag_of_words
-            all_word_counts = top_n_words(word_counts,n=request.POST['ranks']) # «en­ÓÃöÁä¦r(¥¼§R°£stopwords)
-            all_freq_list = word_freq_list(word_counts)
-            word_counts = prepared_words_counter(scrape_texts) 
-            pre_word_counts = top_n_words(word_counts,n=request.POST['ranks'])  # «en­ÓÃöÁä¦r(«e³B²z)
-            pre_freq_list = word_freq_list(word_counts)
-            keyword = textCheck(request.POST['keyword'],[x[0] for x in prepared_words_counter(scrape_texts,stopwords=True,stem=False)]) #¨Ï¥Î§R°£stopwords¡B¥¼stemªº¡A°»¿ù¿é¤Jªºkeywords
-            #print(keyword)
-            #print(request.POST['keyword'])
-            file_text=find_keyword(file_text,keyword) # ¦b¤å¥»·j´MÃöÁä¦r
-            #print(word_counts)
-            error_msg='Upload Success'
-            keyword_msg = keywordCheck(keyword,request.POST['keyword'])
-            #print(keyword_msg)
-            return render(request,'url_zipf.html',{'form':form,'error_msg':error_msg,'keyword_msg':keyword_msg,'file_text':file_text,'pre_word_counts':pre_word_counts ,'all_word_counts':all_word_counts ,'pre_freq_list':pre_freq_list,'all_freq_list':all_freq_list,"ranks":str(int(request.POST['ranks'])+1)})
+        if web_type == 'PUBMED':
+            text_list = pubmed_search_scraper(term,size)
+            show_texts=text_list[0]
+            for text in text_list:
+                scrape_texts += text
+        else:
+            text_list=twitter_search_scraper(term,size)
+            show_texts=text_list[0]['user']+' '+text_list[0]['id']+'<br>'+text_list[0]['text']+'\n'
+            for text in text_list:
+                scrape_texts += text['user']+' '+text['id']+' '+text['text']+'\n'
+        file_text = scrape_texts
+        word_counts = prepared_words_counter(scrape_texts,stopwords=False,stem=False)        # bag_of_words
+        all_word_counts = top_n_words(word_counts,n=int(request.POST['ranks'])) # å‰nå€‹é—œéµå­—(æœªåˆªé™¤stopwords)
+        all_freq_list = word_freq_list(word_counts)
+        word_counts = prepared_words_counter(scrape_texts) 
+        pre_word_counts = top_n_words(word_counts,n=int(request.POST['ranks']))  # å‰nå€‹é—œéµå­—(å‰è™•ç†)
+        pre_freq_list = word_freq_list(word_counts)
+        keyword = textCheck(request.POST['keyword'],[x[0] for x in prepared_words_counter(show_texts,stopwords=True,stem=False)]) #ï¿½Ï¥Î§Rï¿½ï¿½stopwordsï¿½Bï¿½ï¿½stemï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½keywords
+        #print(keyword)
+        #print(request.POST['keyword'])
+        file_text=find_keyword(show_texts,keyword) # åœ¨æ–‡æœ¬æœå°‹é—œéµå­—
+        #print(word_counts)
+        error_msg='Upload Success'
+        keyword_msg = keywordCheck(keyword,request.POST['keyword'])
+        #print(keyword_msg)
+        return render(request,'url_zipf.html',{'form':form,'error_msg':error_msg,'keyword_msg':keyword_msg,'file_text':file_text,'pre_word_counts':pre_word_counts ,'all_word_counts':all_word_counts ,'pre_freq_list':pre_freq_list,'all_freq_list':all_freq_list,"ranks":str(int(request.POST['ranks'])+1)})
     else:
         form = Get_Url_zipf()
     return render(request,'url_zipf.html',{'form':form,'error_msg':error_msg,'keyword_msg':keyword_msg})
@@ -106,7 +118,7 @@ def test(request):
 
 #function
 
-def handle_uploaded_file(f): # Àx¦sÀÉ®×
+def handle_uploaded_file(f): # save file
     save_path = os.path.join(settings.MEDIA_ROOT,'upload_files', f.name)
     #print(save_path)
     fp = open(save_path, 'wb+')
@@ -114,7 +126,7 @@ def handle_uploaded_file(f): # Àx¦sÀÉ®×
         fp.write(chunk)
     fp.close()
 
-def readFile(f): # Åª¨úÀÉ®×
+def readFile(f): # read file
     read_path = os.path.join(settings.MEDIA_ROOT,'upload_files', f.name)
     fp = open(read_path,'r+',encoding="utf-8")
     #print(fp.read())
@@ -123,27 +135,27 @@ def readFile(f): # Åª¨úÀÉ®×
     return file_text
 
 
-def scrape(url,sleep = 0.001): # ±qºô­¶Â^¨ú¤º®e
+def scrape(url,sleep = 1): # å¾ç¶²é æ“·å–å…§å®¹
     options = webdriver.ChromeOptions()
-    options.add_argument("--disable-notifications") # ¨ú®øºô­¶¤¤ªº¼u¥Xµøµ¡
+    options.add_argument("--disable-notifications") #  å–æ¶ˆç¶²é ä¸­çš„å½ˆå‡ºè¦–çª—
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
-    driverPath=os.path.join(settings.BASE_DIR,'chromedrive','chromedriver.exe') #¦s©ñchromedriverªº¸ô®|
+    driverPath=os.path.join(settings.BASE_DIR,'chromedrive','chromedriver.exe')#å­˜æ”¾chromedriverçš„è·¯å¾‘
     #driverPath='chromedriver'
     chrome = webdriver.Chrome(executable_path=driverPath,chrome_options=options) 
-    #«Ø¥ßwebdriverª«¥ó¡A(executable_path=ÂsÄı¾¹ÅX°Êµ{¦¡¸ô®|¡Achrome_options=ÂsÄı¾¹³]©w)¡C
-    chrome.get(url)   # «e©¹­nª¦¨úªººô­¶ºô§}
-    time.sleep(sleep)     # µ¥­¶­±¥[¸ü§¹¦¨
+   #å»ºç«‹webdriverç‰©ä»¶ï¼Œ(executable_path=ç€è¦½å™¨é©…å‹•ç¨‹å¼è·¯å¾‘ï¼Œchrome_options=ç€è¦½å™¨è¨­å®š)ã€‚
+    chrome.get(url)   # å‰å¾€è¦çˆ¬å–çš„ç¶²é ç¶²å€
+    time.sleep(sleep)    # ç­‰é é¢åŠ è¼‰å®Œæˆ
     return chrome.page_source
 
-def json_file_parser(file_text): # ¤ÀªRjsonÀÉ¤º®e
+def json_file_parser(file_text): # åˆ†æjsonæª”å…§å®¹
     parser=''
     while(1):
         try:
             parser = json.loads(file_text)
             #print('try')
-        except: # §â¦h¾lªº³r¸¹Âo±¼¡AÁ×§Kerror
+        except:  # æŠŠå¤šé¤˜çš„é€—è™Ÿæ¿¾æ‰ï¼Œé¿å…error
             index = file_text.rfind(',')
             file_text = file_text[:index]+file_text[index+1:]
             #print('except')
@@ -151,9 +163,9 @@ def json_file_parser(file_text): # ¤ÀªRjsonÀÉ¤º®e
             break
             #print('break')
     try:
-        texts = parser[0]['Text'] # ±NtextÂ^¨ú¥X¨Ó
+        texts = parser[0]['Text'] # å°‡textæ“·å–å‡ºä¾†
     except:
-        texts = parser[0]['tweet_text'] # ±NtextÂ^¨ú¥X¨Ó
+        texts = parser[0]['tweet_text'] # å°‡textæ“·å–å‡ºä¾†
 
     return texts
 
@@ -181,9 +193,9 @@ def xml_file_parser(file_text):
     #print('====this:')
     #print(file_text)
     #print('13')
-    #article_title = soup.find('ArticleTitle') #¤å³¹¼ĞÃD
+    #article_title = soup.find('ArticleTitle')#æ–‡ç« æ¨™é¡Œ
     #print(article_title)
-    abstract = soup.find_all('Abstract') #¤å³¹ªºAbstract
+    abstract = soup.find_all('Abstract')#æ–‡ç« çš„Abstract
     texts=''
     #texts = (article_title.text) +'\n'
     #print(title.text)
@@ -194,26 +206,26 @@ def xml_file_parser(file_text):
     return texts
 
 def xml_url_parser(url_text):
-    soup = BeautifulSoup(url_text)
+    soup = BeautifulSoup(url_text,'lxml')
     #title = soup.find('h1',{'class':'heading-title'})
     abstract = soup.find_all('div',{'class':'abstract'})
     texts=''
     #texts = title.text+'\n'
     #print(title.text)
     for a in abstract:
-        if(a.text):
-            texts += a.text+'\n'
+        texts += a.text+'\n'
         #print(a.text) 
     return texts
 
-def pubmed_search_scraper(term,size): #§ì¨úpubmed·j´M¨ìªº¤å¥»
+def pubmed_search_scraper(term,size): #æŠ“å–pubmedæœå°‹åˆ°çš„æ–‡æœ¬
     page=1
     data_ids=''
     text_list=[]
     while(size>len(data_ids.split(','))):
+        print(len(data_ids.split(',')))
         url='https://pubmed.ncbi.nlm.nih.gov/?term='+term+'&size=200&page='+str(page)
-        search_page=scrape(url)
-        soup = BeautifulSoup(search_page)
+        search_page=scrape(url,1)
+        soup = BeautifulSoup(search_page,'lxml')
         data_ids += soup.find('div',{'class':'search-results-chunk results-chunk'})['data-chunk-ids']
         if(size<len(data_ids.split(','))):
             break
@@ -221,11 +233,13 @@ def pubmed_search_scraper(term,size): #§ì¨úpubmed·j´M¨ìªº¤å¥»
         page += 1
     
     for i in range(size):
+        print(i)
         id=data_ids.split(',')[i]
         url='https://pubmed.ncbi.nlm.nih.gov/'+id
         print(url)
-        url_text = scrape(url)
+        url_text = scrape(url,1)
         texts = xml_url_parser(url_text)
+        print(texts)
         text_list.append(texts)
         #print(texts) 
         #print('-----------------')
@@ -245,17 +259,18 @@ def twitter_search_scraper(term,size):
     # open the browser with chrome driver
     chrome = webdriver.Chrome(executable_path=driverPath,chrome_options=options) 
     chrome.get(url)
-    time.sleep(1)
+    time.sleep(1.5)
 
     while(size>len(text_list)):
+        print(len(text_list))
         html_source = chrome.page_source
-        tweet = json_url_parser(html_source,'lxml')
+        tweet = json_url_parser(html_source)
         text_list += tweet
         #scroll down until "size == len(text_list)"
         last_height = chrome.execute_script("return document.body.scrollHeight")
         chrome.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         # Wait to load page
-        time.sleep(1)
+        time.sleep(1.5)
         # Calculate new scroll height and compare with last scroll height
         new_height = chrome.execute_script("return document.body.scrollHeight")
         if new_height == last_height:
@@ -263,13 +278,13 @@ def twitter_search_scraper(term,size):
         if size<=len(text_list):
             break
         last_height = new_height
+    print('text_list= ',text_list)
     return text_list
 
-def prepared_words_counter(text,stopwords=True,stem=True):   # ­pºâ©Ò¦³³æ¦r¥X²{¦¸¼Æ¤Î¾÷²v
-    # (xml)­pºâwordsªº¼Æ¶q
+def prepared_words_counter(text,stopwords=True,stem=True):  # è¨ˆç®—æ‰€æœ‰å–®å­—å‡ºç¾æ¬¡æ•¸åŠæ©Ÿç‡
     stemmer = SnowballStemmer('english') # stemmer
     words_counts = {} # word dictionary
-    title_pre = text_prepare(text,stopwords) # «e³B²z
+    title_pre = text_prepare(text,stopwords)# å‰è™•ç†
     for t in title_pre.split():    # bag_of_words
         if stem:
             t = stemmer.stem(t)
@@ -282,7 +297,7 @@ def prepared_words_counter(text,stopwords=True,stem=True):   # ­pºâ©Ò¦³³æ¦r¥X²{¦
 
 
 def find_keyword(text,keyword):
-    #±Nkeyword tag¥X¨Ó
+    #å°‡keyword tagå‡ºä¾†
     for key in keyword.split():
         color = "".join([choice("0123456789ABCDEF") for k in range(6)])
         matches = list(re.finditer(key.lower(),text.lower()))
@@ -290,14 +305,14 @@ def find_keyword(text,keyword):
         for i in matches:
             text=text[:i.start()]+"<mark style='color:#"+ color +"'>"+ text[i.start():i.end()] + '</mark>' +text[i.end():]
     
-    #±N´«¦æ²Åreplace¦¨<br>
+    #å°‡æ›è¡Œç¬¦replaceæˆ<br>
     char='\n'
     #print('no change',text.count(char))
     text=text.replace(char, "<br>")
     #print('change',text.count(char))
     return text
 
-def top_n_words(common_words,n=10):        # ¦L¥X«e10¦h³æ¦r
+def top_n_words(common_words,n=10):        # å°å‡ºå‰10å¤šå–®å­—
     keyword_counts = []
     #print(keyword_counts)
     words_class=sum(c[1] for c in common_words)
@@ -317,51 +332,54 @@ def top_n_words(common_words,n=10):        # ¦L¥X«e10¦h³æ¦r
 
 
 def word_freq_list(common_words): # freq_counts:[times,frequence]
-    freq_counts=[[(i+1) for i in range(len(common_words))]]
+    freq_counts=[]
+    words=[]
     times=[]
     freq=[]
     all_counts=sum(c[1] for c in common_words)
     #print("words")
     for cw in common_words:
         #print(cw[0])
+        words.append(cw[0])
         times.append(cw[1])
         freq.append(cw[1]/all_counts)
     #print(freq_counts)
+    freq_counts.append(words)
     freq_counts.append(times)
     freq_counts.append(freq)
     #print(freq_counts)
     return freq_counts
 
 
-# ¤£­pºâªº¦r¤¸»P³æ¦r
+# ä¸è¨ˆç®—çš„å­—å…ƒèˆ‡å–®å­—
 REPLACE_BY_SPACE_RE = re.compile('[/(){}\[\]\|@,;]')
 BAD_SYMBOLS_RE = re.compile('[^0-9a-z #+_-]')
 STOPWORDS = set(stopwords.words('english'))
 
-def text_prepare(text,stopwords=True):  # ¤å¦r³B²z(²¾°£¼ĞÂI²Å¸¹¡B¼Æ¦r¡Bstopwords)
+def text_prepare(text,stopwords=True):  # æ–‡å­—è™•ç†(ç§»é™¤æ¨™é»ç¬¦è™Ÿã€æ•¸å­—ã€stopwords)
   """
       text: a string
         
       return: modified initial string
   """
-  # Âà¤p¼g
+  # è½‰å°å¯«
   #print('yuanlai: ',text)
   text = text.lower()
   #print('lower: ',text)
-  # ±NREPLACE_BY_SPACE_RE ªº²Å¸¹´«¦¨ªÅ®æ¸¹
+  # ï¿½NREPLACE_BY_SPACE_REçš„ç¬¦è™Ÿæ›æˆç©ºæ ¼è™Ÿ
   text = re.sub(REPLACE_BY_SPACE_RE,' ',text, count=0, flags=0)
   #print('re: ',text)
-  # ±NBAD_SYMBOLS_REªº²Å¸¹²¾°£
+  # ï¿½NBAD_SYMBOLS_REçš„ç¬¦è™Ÿç§»é™¤
   text = re.sub(BAD_SYMBOLS_RE,'',text, count=0, flags=0)
   #print('bad: ',text)
-  # §R°£stopwords
+  # ï¿½Rï¿½ï¿½stopwords
   if stopwords:
     text_split = text.split()
     text=""
     for t in text_split:
         if(not(t in STOPWORDS)):
             text = text+t+' '
-    text = text[:-1] #±N³Ì«áªºªÅ®æ§R°£
+    text = text[:-1] #å°‡æœ€å¾Œçš„ç©ºæ ¼åˆªé™¤
   #print(text)
   return text
 
@@ -375,11 +393,11 @@ def textCheck(sentence,words_list):
         #print(sorted(temp, key = lambda val:val[0])[0][1])
         #print(sorted(temp, key = lambda val:val[0])[0][:10])
         output += sorted(temp, key = lambda val:val[0])[0][1] + ' '
-    output = output[:-1] #¥h±¼³Ì«áªº' ' 
+    output = output[:-1]#å»æ‰æœ€å¾Œçš„' ' 
     return output
 
 
-def keywordCheck(keywords,insert):   # ­Yuser¿é¤J¦³»~¡A¬õ¼Ğ´£¿ô¿ù»~¦r¡C
+def keywordCheck(keywords,insert):   # ï¿½Yuserï¿½ï¿½Jï¿½ï¿½ï¿½~ï¿½Aï¿½ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½rï¿½C
     keyword_msg = 'Showing results for the following terms: '
     key = keywords.split()
     ins = insert.split()

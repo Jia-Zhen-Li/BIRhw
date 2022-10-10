@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=deviec-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="." class="nav-link px-2 text-white">Home</a></li>
+                    <li><a href="file_upload_zipf" class="nav-link px-2 text-secondary">File_Upload</a></li>
+                    <li><a href="url_parser_zipf" class="nav-link px-2 text-white">Webpage_Scraper</a></li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+                </form>
+
+            </div>
+        </div>
+    </header>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table align="center" width="800" height="200" border="1">
+            <tr align="center">
+                <td class="p-3 text-bg-dark bg-opacity-75" colspan="3"><h3>Insert</h3></td>
+            </tr>
+            <tr>
+                <td align="center">Type</td>
+                <td>{{form.webtype}}</td>
+            </tr>
+            <tr>
+                <td align="center">Theme</td>
+                <td>{{form.term}}</td>
+            </tr>
+            <tr>
+                <td align="center">Size</td>
+                <td align="center" width="200">{{form.size}}</td>
+            </tr>
+            <tr>
+                <td align="center">Search</td>
+                <td>{{form.keyword}}</td>
+            </tr>
+            <tr>
+                <td align="center">Ranks</td>
+                <td>{{form.ranks}}</td>
+                <td align="center"><input type="submit" value="Submit" class="btn btn-outline-secondary" /></td>
+            </tr>
+        </table>
+        <table align="center" width="800">
+            <tr>
+                <td align="center">{{ error_msg }}</td>
+            </tr>
+            <tr>
+                <td align="center">
+                    {% autoescape off %}
+                    {{ keyword_msg }}
+                    {% endautoescape %}
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
+    <p></p>
+    <p></p>
+    <table align="center" width="800" border="1">
+        <tr align="center">
+            <td class="p-3 text-bg-dark bg-opacity-25" colspan="3"><h3>Text</h3></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                {% autoescape off %}
+                {{ file_text }}
+                {% endautoescape %}
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <p></p>
+    <table align="center" width="800" border="1">
+        <tr align="center">
+            <td class="p-3 text-bg-dark bg-opacity-10" colspan="3"><h3> Keyword's density</h3></td>
+        </tr>
+        <tr>
+            <td style="background-color:gray"><b>Word</b></td>
+            <td style="background-color:gray"><b>Freq</b></td>
+            <td colspan={{ranks}} rowspan={{ranks}}>
+                <div>
+                    <canvas id="Chart1"></canvas>
+                </div>
+            </td>
+        </tr>
+        {%for c in pre_word_counts %}
+        <tr>
+            <td>{{c.0}}</td>
+            <td>{{c.1}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p></p>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const freq_list = {{pre_freq_list|safe}};
+        const labels = freq_list[0];
+        const datas = freq_list[1];
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'datas',
+                backgroundColor: 'rgb(100,100,100)',
+                pointStyle: 'rectRounded',
+                data: datas,
+                fill: false,
+                tension: 0.1
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {}
+        };
+        const Chart1 = new Chart(
+            document.getElementById('Chart1'),
+            config
+        );
+    </script>
+
+    <table align="center" width="800" border="1">
+        <tr align="center">
+            <td class="p-3 " colspan="3"><h3 style="color:darkgray">Zipf Curve</h3></td>
+        </tr>
+        <tr>
+            <td style="background-color:gray"><b>Word</b></td>
+            <td style="background-color:gray"><b>Freq</b></td>
+            <td colspan={{ranks}} rowspan={{ranks}}>
+                <div>
+                    <canvas id="Chart2"></canvas>
+                </div>
+            </td>
+        </tr>
+        {%for c in all_word_counts %}
+        <tr>
+            <td>{{c.0}}</td>
+            <td>{{c.1}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p></p>
+
+
+    <script>
+        const freq_list2 = {{all_freq_list|safe}};
+        const labels2 = freq_list2[0];
+        const datas2 = freq_list2[1];
+
+        const data2 = {
+            labels: labels2,
+            datasets: [{
+                label: 'datas',
+                backgroundColor: 'rgb(100,100,100)',
+                borderSkipped: 'true',
+                pointStyle: 'rectRounded',
+                data: datas2,
+                fill: false,
+                tension: 0.1
+            }]
+        };
+
+        const config2 = {
+            type: 'line',
+            data: data2,
+            options: {}
+        };
+
+        const Chart2 = new Chart(
+            document.getElementById('Chart2'),
+            config2
+        );
+    </script>
+
+</body>
+</html>

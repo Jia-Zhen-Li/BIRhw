@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=deviec-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="." class="nav-link px-2 text-white">Home</a></li>
+                    <li><a href="covid" class="nav-link px-2 text-secondary">Covid</a></li>
+                    <li><a href="mpx" class="nav-link px-2 text-white">Monkeypox</a></li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+                </form>
+
+            </div>
+        </div>
+    </header>
+    <table align="center" width="1800" border="1">
+        <tr align="center">
+            <td class="p-3 text-bg-dark bg-opacity" colspan="3"><h3> Keyword's density</h3></td>
+        </tr>
+        <tr align="center">
+            <td style="background-color:gray"><b>Word</b></td>
+            <td style="background-color:gray"><b>Freq</b></td>
+            <td colspan={{ranks}} rowspan={{ranks}}>
+                <div>
+                    <canvas id="Chart1"></canvas>
+                </div>
+            </td>
+        </tr>
+        {%for c in pre_word_counts %}
+        <tr align="center">
+            <td align="center">{{c.0}}</td>
+            <td align="center">{{c.1}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p></p>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const freq_list = {{pre_freq_list|safe}};
+        const labels = freq_list[0];
+        const datas = freq_list[1];
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'datas',
+                backgroundColor: 'rgb(100,100,100)',
+                pointStyle: 'rectRounded',
+                data: datas,
+                fill: false,
+                tension: 0.1
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {}
+        };
+        const Chart1 = new Chart(
+            document.getElementById('Chart1'),
+            config
+        );
+    </script>
+
+    <table align="center" width="1800" border="1">
+        <tr align="center">
+            <td class="p-3 text-bg-dark bg-opacity-50" colspan="3" align="center"><h3 style="color:darkgray">Word Cloud</h3></td>
+        </tr>
+        <tr align="center">
+            <td align="center"><img src="https://i.imgur.com/55UcsML.png" /></td>
+        </tr>
+    </table>
+    <p></p>
+
+    <p></p>
+    <table align="center" width="1800" border="1">
+        <tr align="center">
+            <td class="p-3 text-bg-dark bg-opacity-25" colspan="3" align="center"><h3 style="color:darkgray">Scatter Graph</h3></td>
+        </tr>
+        <tr align="center">
+            <td align="center" style="background-color:gray" colspan="2"><b>CBOW</b></td>
+        </tr>
+        <tr align="center">
+            <td align="center"><b>PCA</b></td>
+            <td align="center"><b>T-SNE</b></td>
+        </tr>
+        <tr align="center">
+            <td align="center"><img src="https://i.imgur.com/eywnn80.png" /></td>
+            <td align="center"><img src="https://i.imgur.com/jYNIAbT.png" /></td>
+        </tr>
+        <tr align="center">
+            <td align="center"><img src="https://i.imgur.com/PslLoQC.png" /></td>
+            <td align="center"><img src="https://i.imgur.com/LO0tomw.png" /></td>
+        </tr>
+        <tr align="center">
+            <td align="center" style="background-color:gray" colspan="2"><b>SKIP-GRAM</b></td>
+        </tr>
+        <tr align="center">
+            <td align="center"><b>PCA</b></td>
+            <td align="center"><b>T-SNE</b></td>
+        </tr>
+        <tr align="center">
+            <td align="center"><img src="https://i.imgur.com/3GwwoGW.png" /></td>
+            <td align="center"><img src="https://i.imgur.com/rrzmTxb.png" /></td>
+        </tr>
+        <tr align="center">
+            <td align="center"><img src="https://i.imgur.com/AC5eUzJ.png" /></td>
+            <td align="center"><img src="https://i.imgur.com/5mf3K4P.png" /></td>
+        </tr>
+
+    </table>
+    <p></p>
+    <table align="center" width="1800" border="1">
+        <tr align="center">
+            <td class="p-3 " colspan="3" align="center"><h3 style="color:darkgray">Top 100 keywords about Covid-19</h3></td>
+        </tr>
+        <tr align="center">
+            <td align="center" style="background-color:gray" colspan="2"><b>CBOW</b></td>
+            <td align="center" style="background-color:gray" colspan="2"><b>SKIP-GRAM</b></td>
+        </tr>
+        <tr align="center">
+            <td align="center"><b>Word</b></td>
+            <td align="center"><b>Similarity</b></td>
+            <td align="center"><b>Word</b></td>
+            <td align="center"><b>Similarity</b></td>
+        </tr>
+        {%for c in cov %}
+        <tr align="center">
+            <td align="center">{{c.0}}</td>
+            <td align="center">{{c.1}}</td>
+            <td align="center">{{c.2}}</td>
+            <td align="center">{{c.3}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

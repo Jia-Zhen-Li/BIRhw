@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=deviec-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="." class="nav-link px-2 text-white">Home</a></li>
+                    <li><a href="file_upload_zipf" class="nav-link px-2 text-secondary">TF-IDF</a></li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+                </form>
+
+            </div>
+        </div>
+    </header>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table align="center" width="1400" height="200" border="1">
+            <tr align="center">
+                <td class="p-3 text-bg-dark bg-opacity-75" colspan="3"><h3>Insert</h3></td>
+            </tr>
+            <tr>
+                <td align="center">Query</td>
+                <td>{{form.query}}</td>
+                <td align="center"><input type="submit" value="Submit" class="btn btn-outline-secondary" /></td>
+            </tr>
+        </table>
+    </form>
+
+
+    <p></p>
+    <p></p>
+    <table align="center" width="1400" border="1">
+        <tr align="center">
+            <td class="p-3 text-bg-dark bg-opacity-10" colspan="3"><h3>CATEGORIES</h3></td>
+        </tr>
+        <tr>
+            <td style="background-color: #ff86a7" align="center"><b>Meniere</b></td>
+            <td style="background-color: #7c86fe" align="center"><b>Depression</b></td>
+            <td style="background-color: #00FFFF" align="center"><b>Epilepsy</b></td>
+        </tr>
+        <tr>
+            <td align="center">0-99</td>
+            <td align="center">100-199</td>
+            <td align="center">200-299</td>
+        </tr>
+        <tr>
+            <td align="center" style="background-color:gray"><img height="235" src="https://i.imgur.com/6CKKo7J.png" /></td>
+            <td align="center" style="background-color:gray"><img height="235" src="https://i.imgur.com/3G7vk4D.png" /></td>
+            <td align="center" style="background-color:gray"><img height="235" src="https://i.imgur.com/vc0WVXW.png" /></td>
+        </tr>
+    </table>
+    <p></p>
+
+    <table align="center" width="1400" border="1">
+        <tr align="center">
+            <td class="p-3 " colspan="6"><h3 style="color:darkgray">Variant TF-IDF Comparison</h3></td>
+        </tr>
+        <tr>
+            <td align="center" style="background-color:gray" colspan="2"><b>Natural(tf)</b></td>
+            <td align="center" style="background-color:gray" colspan="2"><b>Boolean(tf = {0,1})</b></td>
+            <td align="center" style="background-color:gray" colspan="2"><b>Logarithm(tf = 1+log(tf))</b></td>
+        </tr>
+        <tr>
+            <td align="center" style="background-color:gray" colspan="2"><img src="https://i.imgur.com/aYX6GM2.png" /></td>
+            <td align="center" style="background-color:gray" colspan="2"><img src="https://i.imgur.com/pc3tpux.png" /></td>
+            <td align="center" style="background-color:gray" colspan="2"><img src="https://i.imgur.com/niOdtwT.png" /></td>
+        </tr>
+        <tr>
+            <td align="center"><b>Index</b></td>
+            <td align="center"><b>Similarity</b></td>
+            <td align="center"><b>Index</b></td>
+            <td align="center"><b>Similarity</b></td>
+            <td align="center">Index</td>
+            <td align="center"><b>Similarity</b></td>
+        </tr>
+
+        {%for item in all_results %}
+        <tr>
+            <td align="center">{{item.0}}</td>
+            <td align="center">{{item.1}}</td>
+            <td align="center">{{item.2}}</td>
+            <td align="center">{{item.3}}</td>
+            <td align="center">{{item.4}}</td>
+            <td align="center">{{item.5}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p></p>
+
+</body>
+</html>
